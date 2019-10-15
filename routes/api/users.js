@@ -1,5 +1,5 @@
 const express = require("express");
-const jwt = require("jasonwebtoken");
+const jwt = require("jsonwebtoken");
 const config = require("config");
 const router = express.Router();
 const gravatar = require("gravatar");
