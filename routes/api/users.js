@@ -70,7 +70,7 @@ router.post(
       };
 
       // Return JSON Web Token
-      jwr.sign(
+      jwt.sign(
         payload,
         config.get("jwtSecret"),
         // Expiration optional
