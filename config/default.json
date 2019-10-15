@@ -1,3 +1,4 @@
 {
-  "mongoURI": "mongodb+srv://wiola123:wiola123@cluster0-si5d2.mongodb.net/test?retryWrites=true&w=majority"
+  "mongoURI": "mongodb+srv://wiola123:wiola123@cluster0-si5d2.mongodb.net/test?retryWrites=true&w=majority",
+  "jwt": "mysecrettoken"
 }
