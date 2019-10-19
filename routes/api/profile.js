@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const auth = require('../../middleware/auth');
+const { check, validationResult } = require('express-validator');
 
 const Profile = require('../../models/Profile');
 const User = require('../../models/User');
@@ -25,5 +26,56 @@ router.get('/me', auth, async (request, response) => {
     response.status(500).send('Server Error');
   }
 });
+
+// @route   GET api/profile
+// @desc    Create || update user profile
+// @access  Private
+router.post('/',
+  [
+    auth,
+    [
+      check('status', 'Status is required').not().isEmpty(),
+      check('interests', 'Interests are required').not().isEmpty(),
+    ]
+  ],
+  async (request, response) => {
+    const errors = validationResult(request);
+    if (!errors.isEmpty()) {
+      return response.status(400).json({ errors: errors.array() });
+    }
+    const {
+      website,
+      location,
+      status,
+      interests,
+      bio,
+      instagramusername,
+      instagram,
+      facebook,
+      linkedin
+    } = request.body;
+
+    // Build profile object fields
+
+    const profileFields = {};
+    profileFields.user = request.user.id;
+    if (website) profileFields.website = website;
+    if (location) profileFields.location = location;
+    if (status) profileFields.status = status;
+    if (bio) profileFields.bio = bio;
+    if (instagramusername) profileFields.instagramusername = instagramusername;
+    if (instagram) profileFields.instagram = instagram;
+    if (facebook) profileFields.facebook = facebook;
+    if (linkedin) profileFields.linkedin = linkedin;
+    // we need to turn interests into array
+    if (interests) {
+      profileFields.interests = interests.split(',').map(interest => interest.trim());
+    }
+    console.log(profileFields.interests);
+
+    response.send('Hello')
+  }
+);
+
 
 module.exports = router;
