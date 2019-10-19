@@ -38,6 +38,8 @@ router.post('/',
       check('interests', 'Interests are required').not().isEmpty(),
     ]
   ],
+
+  // Here we check for the errors
   async (request, response) => {
     const errors = validationResult(request);
     if (!errors.isEmpty()) {
@@ -56,7 +58,6 @@ router.post('/',
     } = request.body;
 
     // Build profile object fields
-
     const profileFields = {};
     profileFields.user = request.user.id;
     if (website) profileFields.website = website;
@@ -64,16 +65,41 @@ router.post('/',
     if (status) profileFields.status = status;
     if (bio) profileFields.bio = bio;
     if (instagramusername) profileFields.instagramusername = instagramusername;
-    if (instagram) profileFields.instagram = instagram;
-    if (facebook) profileFields.facebook = facebook;
-    if (linkedin) profileFields.linkedin = linkedin;
-    // we need to turn interests into array
+
+    // Turning interests into array
     if (interests) {
       profileFields.interests = interests.split(',').map(interest => interest.trim());
     }
-    console.log(profileFields.interests);
 
-    response.send('Hello')
+    // Building social profiles object
+    profileFields.social = {}
+    if (instagram) profileFields.social.instagram = instagram;
+    if (facebook) profileFields.social.facebook = facebook;
+    if (linkedin) profileFields.social.linkedin = linkedin;
+
+    // Looking through profiles to find the user
+    try {
+      let profile = await Profile.findOne({ user: request.user.id });
+      // If profile exists - update
+      if (profile) {
+        // If profile is found we update it
+        profile = await Profile.findOneAndUpdate(
+          { user: request.user.id },
+          { $set: profileFields },
+          { new: true }
+        );
+
+        return response.json(profile);
+      }
+      // If it is not found we create, and save it and send back
+      profile = new Profile(profileFields);
+
+      await profile.save();
+      response.json(profile);
+    } catch (err) {
+      console.error(err.message);
+      response.status(500).send('Server error');
+    }
   }
 );
 
