@@ -128,7 +128,7 @@ router.put('/like/:id', auth, async (request, response) => {
     response.json(post.likes);
   } catch (err) {
     console.error(err.message);
-    res.status(500).send('Server Error');
+    response.status(500).send('Server Error');
   }
 });
 
@@ -151,6 +151,7 @@ router.put('/unlike/:id', auth, async (request, response) => {
     const removeIndex = post.likes
       .map(like => like.user.toString())
       .indexOf(request.user.id);
+
     post.likes.splice(removeIndex, 1);
 
     await post.save();
@@ -158,7 +159,7 @@ router.put('/unlike/:id', auth, async (request, response) => {
     response.json(post.likes);
   } catch (err) {
     console.error(err.message);
-    res.status(500).send('Server Error');
+    response.status(500).send('Server Error');
   }
 });
 
