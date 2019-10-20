@@ -51,13 +51,60 @@ router.post("/",
 router.get('/', auth, async (request, response) => {
   try {
     // sort by recent post
-    const posts = await Post.find().sort({ date: -1 })
+    const posts = await Post.find().sort({ date: -1 });
     response.json(posts);
 
   } catch (err) {
     console.error(err.message);
     response.status(500).send('Server Error');
   }
-})
+});
 
+// @route   GET api/posts/:id
+// @desc    Get post by ID
+// @access  Private
+
+router.get('/:id', auth, async (request, response) => {
+  try {
+    const post = await Post.findById(request.params.id);
+    if (!post) {
+      return response.status(404).json({ msg: 'Post does not exist' });
+    }
+
+    response.json(post);
+  } catch (err) {
+    console.error(err.message);
+    if (err.kind === 'ObjectId') {
+      return response.status(404).json({ msg: 'Post does not exist' });
+    }
+    response.status(500).send('Server Error');
+  }
+});
+
+// @route   DELETE api/posts/:id
+// @desc    Delete a post
+// @access  Private
+
+router.delete('/:id', auth, async (request, response) => {
+  try {
+    const post = await Post.findById(request.params.id);
+
+    if (!post) {
+      return response.status(404).json({ msg: 'Post does not exist' });
+    }
+    // Check if user own a post
+    if (post.user.toString() !== request.user.id) {
+      return response.status(401).json({ msg: 'User not authorised' });
+    }
+    await post.remove();
+
+    response.json({ msg: "Post removed successfully" });
+  } catch (err) {
+    console.error(err.message);
+    if (err.kind === 'ObjectId') {
+      return response.status(404).json({ msg: 'Post does not exist' });
+    }
+    response.status(500).send('Server Error');
+  }
+});
 module.exports = router;
