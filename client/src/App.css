@@ -1,22 +1,84 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css?family=Lato:300,400,700");
+
+/* CSS VARIABLES*/
+
+:root {
+  --color-primary: #60a3d9;
+  --color-secondary: #32324a;
+  --color-background: #f2f2f2;
+  --color-white: #fff;
+  --color-black: #111;
+
+  --font-size-small: 1.2rem;
+  --font-size-regular: 1.6rem;
+  --font-size-large: 2rem;
+
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-bold: 700;
+
+  --line-height-small: 1.2;
+  --line-height-regular: 1.5;
+  --line-height-large: 2;
+
+  --letter-spacing-small: 0.1em;
+  --letter-spacing-regular: 0.15em;
+  --letter-spacing-large: 0.2em;
 }
 
-.App-logo {
-  height: 40vmin;
+/* -------- SIMPLE RESET ------------- */
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  list-style: none;
+  border: none;
+  text-decoration: none;
+  background-color: transparent;
+  font-family: "Lato", Helvetica, Arial, Verdana, Tahoma;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+html {
+  /* This define what 1rem is */
+  /* 10px/16pc = 62,5% --> 1rem = 10px; */
+  font-size: 62.5%;
+  height: 100%;
+  width: 100%;
 }
 
-.App-link {
-  color: #09d3ac;
+button,
+a:link,
+a:visited,
+a:hover,
+a:active {
+  cursor: pointer;
+}
+
+/* ------------------------------------- */
+
+body {
+  font-size: var(--font-size-regular);
+  font-weight: var(--font-weight-regular);
+  background-color: var(--color-background);
+  color: var(--color-blue-dark);
+}
+
+h1 {
+  font-size: var(--font-size-large);
+  font-weight: var(--font-weight-light);
+  line-height: var(--line-height-regular);
+  letter-spacing: var(--letter-spacing-regular);
+  color: var(--color-primary);
+}
+
+p {
+  font-size: var(--font-size-regular);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-regular);
+  letter-spacing: var(--letter-spacing-regular);
+  color: var(--color-primary);
 }
