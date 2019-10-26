@@ -19,6 +19,7 @@ function Register() {
 
   const onSubmit = e => {
     e.preventDefault();
+    // Checking if both passwords match
     if (password !== passwordCheck) {
       console.log('Passwords do not match');
     } else {
