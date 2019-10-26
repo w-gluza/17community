@@ -12,6 +12,7 @@
   "author": "Izabela, Wioletta, Krzysztof",
   "license": "ISC",
   "dependencies": {
+    "@material-ui/core": "^4.5.1",
     "bcryptjs": "^2.4.3",
     "config": "^3.2.3",
     "express": "^4.17.1",
