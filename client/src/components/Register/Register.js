@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
+// Redux
+import { connect } from 'react-redux';
+import { setAlert } from '../../actions/alert';
+
 // Material-UI Components Imports
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 
-function Register() {
+const Register = props => {
   const [values, setValues] = useState({
     name: '',
     email: '',
@@ -24,7 +28,7 @@ function Register() {
     e.preventDefault();
     // Checking if both passwords match
     if (password !== passwordCheck) {
-      console.log('Passwords do not match');
+      props.setAlert('Passwords do not match', 'danger');
     } else {
       console.log('Success');
     }
@@ -87,7 +91,7 @@ function Register() {
             type='submit'
             variant='outlined'
             color='primary'
-          // className={classes.button}
+            // className={classes.button}
           >
             Sign Up
           </Button>
@@ -98,6 +102,9 @@ function Register() {
       </section>
     </>
   );
-}
+};
 
-export default Register;
+export default connect(
+  null,
+  { setAlert },
+)(Register);
