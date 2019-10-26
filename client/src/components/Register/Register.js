@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import axios from 'axios';
 
 function Register() {
   const [values, setValues] = useState({
@@ -17,13 +18,29 @@ function Register() {
     setValues({ ...values, [name]: e.target.value });
   };
 
-  const onSubmit = e => {
+  const onSubmit = async e => {
     e.preventDefault();
     // Checking if both passwords match
     if (password !== passwordCheck) {
       console.log('Passwords do not match');
     } else {
-      console.log(values);
+      const newUser = {
+        name,
+        email,
+        password,
+      };
+      try {
+        const config = {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        };
+        const body = JSON.stringify(newUser);
+        const response = await axios.post('/api/users', body, config);
+        console.log(response.data);
+      } catch (error) {
+        console.error(error.response.data);
+      }
     }
   };
 
@@ -74,13 +91,14 @@ function Register() {
             label='Repeat Password'
             // className={classes.textField}
             type='password'
-            name='password-check'
-            onChange={handleChange('password-check')}
+            name='passwordCheck'
+            onChange={handleChange('passwordCheck')}
             margin='normal'
             variant='outlined'
             required
           />
           <Button
+            type='submit'
             variant='outlined'
             color='primary'
             // className={classes.button}
