@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+
+// Material-UI Components Imports
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import axios from 'axios';
 
 function Register() {
   const [values, setValues] = useState({
@@ -24,23 +26,7 @@ function Register() {
     if (password !== passwordCheck) {
       console.log('Passwords do not match');
     } else {
-      const newUser = {
-        name,
-        email,
-        password,
-      };
-      try {
-        const config = {
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        };
-        const body = JSON.stringify(newUser);
-        const response = await axios.post('/api/users', body, config);
-        console.log(response.data);
-      } catch (error) {
-        console.error(error.response.data);
-      }
+      console.log('Success');
     }
   };
 
@@ -101,11 +87,14 @@ function Register() {
             type='submit'
             variant='outlined'
             color='primary'
-            // className={classes.button}
+          // className={classes.button}
           >
             Sign Up
           </Button>
         </form>
+        <p>
+          Already have an account? <Link to='/login'>Log In</Link>
+        </p>
       </section>
     </>
   );
