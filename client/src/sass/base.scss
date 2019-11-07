@@ -31,9 +31,27 @@ body {
   color: var(--color-blue-dark);
 }
 
-h1 {
+nav {
+  height: var(--nav-height);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+h1,
+h2 {
   font-size: var(--font-size-large);
-  font-weight: var(--font-weight-light);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-regular);
+  letter-spacing: var(--letter-spacing-regular);
+  color: var(--color-primary);
+}
+
+h3 {
+  font-size: var(--font-size-regular);
+  font-weight: var(--font-weight-regular);
   line-height: var(--line-height-regular);
   letter-spacing: var(--letter-spacing-regular);
   color: var(--color-primary);
@@ -41,7 +59,7 @@ h1 {
 
 p {
   font-size: var(--font-size-regular);
-  font-weight: var(--font-weight-regular);
+  font-weight: var(--font-weight-light);
   line-height: var(--line-height-regular);
   letter-spacing: var(--letter-spacing-regular);
   color: var(--color-primary);

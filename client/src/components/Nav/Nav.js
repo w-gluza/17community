@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './Nav.scss';
 
 const Nav = () => {
   return (
     <>
-      <nav>
+      <nav className='nav'>
         <h1>
           <Link to='/'>17 Community</Link>
         </h1>

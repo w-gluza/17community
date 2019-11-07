@@ -18,7 +18,7 @@ html {
 
   --font-size-small: 1.2rem;
   --font-size-regular: 1.6rem;
-  --font-size-large: 2rem;
+  --font-size-large: 3rem;
 
   --font-weight-light: 300;
   --font-weight-regular: 400;
@@ -31,6 +31,8 @@ html {
   --letter-spacing-small: 0.1em;
   --letter-spacing-regular: 0.15em;
   --letter-spacing-large: 0.2em;
+
+  --nav-height: 8vh;
 }
 
 // ------------------ MIXINS ----------------------- //
