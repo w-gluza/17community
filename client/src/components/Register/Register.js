@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Register.scss';
+import PropTypes from 'prop-types';
 
 import illustration from '../../assets/illustrations/00_community.svg';
 
@@ -12,7 +13,7 @@ import { setAlert } from '../../actions/alert';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 
-const Register = props => {
+const Register = ({ setAlert }) => {
   const [values, setValues] = useState({
     name: '',
     email: '',
@@ -31,7 +32,7 @@ const Register = props => {
     e.preventDefault();
     // Checking if both passwords match
     if (password !== passwordCheck) {
-      props.setAlert('Passwords do not match', 'danger');
+      setAlert('Passwords do not match', 'danger');
     } else {
       console.log('Success');
     }
@@ -113,6 +114,10 @@ const Register = props => {
       </section>
     </>
   );
+};
+
+Register.propTypes = {
+  setAlert: PropTypes.func.isRequired,
 };
 
 export default connect(
