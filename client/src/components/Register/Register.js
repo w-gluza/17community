@@ -8,12 +8,13 @@ import illustration from '../../assets/illustrations/00_community.svg';
 // Redux
 import { connect } from 'react-redux';
 import { setAlert } from '../../actions/alert';
+import { register } from '../../actions/auth';
 
 // Material-UI Components Imports
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 
-const Register = ({ setAlert }) => {
+const Register = ({ setAlert, register }) => {
   const [values, setValues] = useState({
     name: '',
     email: '',
@@ -34,7 +35,7 @@ const Register = ({ setAlert }) => {
     if (password !== passwordCheck) {
       setAlert('Passwords do not match', 'danger');
     } else {
-      console.log('Success');
+      register({ name, email, password });
     }
   };
 
@@ -56,7 +57,7 @@ const Register = ({ setAlert }) => {
               onChange={handleChange('name')}
               margin='normal'
               variant='outlined'
-              required
+              // required
             />
             <TextField
               id='outlined-email-input'
@@ -68,7 +69,7 @@ const Register = ({ setAlert }) => {
               autoComplete='email'
               margin='normal'
               variant='outlined'
-              required
+              // required
             />
             <TextField
               id='outlined-password-input'
@@ -79,7 +80,7 @@ const Register = ({ setAlert }) => {
               onChange={handleChange('password')}
               margin='normal'
               variant='outlined'
-              required
+              // required
             />
             <TextField
               id='outlined-password-input-check'
@@ -90,7 +91,7 @@ const Register = ({ setAlert }) => {
               onChange={handleChange('passwordCheck')}
               margin='normal'
               variant='outlined'
-              required
+              // required
             />
             <Button
               type='submit'
@@ -118,9 +119,10 @@ const Register = ({ setAlert }) => {
 
 Register.propTypes = {
   setAlert: PropTypes.func.isRequired,
+  register: PropTypes.func.isRequired,
 };
 
 export default connect(
   null,
-  { setAlert },
+  { setAlert, register },
 )(Register);

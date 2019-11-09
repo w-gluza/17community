@@ -1,4 +1,4 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
 const { check, validationResult } = require('express-validator'); // express-validator/check are deprecated use express-validator
 const auth = require('../../middleware/auth');
@@ -10,14 +10,15 @@ const User = require('../../models/User');
 // @route   POST api/posts
 // @desc    Create a post
 // @access  Private
-router.post("/",
+router.post(
+  '/',
   [
     auth,
     [
       check('text', 'Text is required')
         .not()
-        .isEmpty()
-    ]
+        .isEmpty(),
+    ],
   ],
   async (request, response) => {
     const errors = validationResult(request);
@@ -31,17 +32,17 @@ router.post("/",
         text: request.body.text,
         name: user.name,
         avatar: user.avatar,
-        user: request.user.id
+        user: request.user.id,
       });
 
       const post = await newPost.save();
 
       response.json(post);
     } catch (err) {
-      console.error(err.message);
+      console.error(err.msg);
       response.status(500).send('Server Error');
     }
-  }
+  },
 );
 
 // @route   GET api/posts
@@ -53,9 +54,8 @@ router.get('/', auth, async (request, response) => {
     // sort by recent post
     const posts = await Post.find().sort({ date: -1 });
     response.json(posts);
-
   } catch (err) {
-    console.error(err.message);
+    console.error(err.msg);
     response.status(500).send('Server Error');
   }
 });
@@ -73,7 +73,7 @@ router.get('/:id', auth, async (request, response) => {
 
     response.json(post);
   } catch (err) {
-    console.error(err.message);
+    console.error(err.msg);
     if (err.kind === 'ObjectId') {
       return response.status(404).json({ msg: 'Post does not exist' });
     }
@@ -98,9 +98,9 @@ router.delete('/:id', auth, async (request, response) => {
     }
     await post.remove();
 
-    response.json({ msg: "Post removed successfully" });
+    response.json({ msg: 'Post removed successfully' });
   } catch (err) {
-    console.error(err.message);
+    console.error(err.msg);
     if (err.kind === 'ObjectId') {
       return response.status(404).json({ msg: 'Post does not exist' });
     }
@@ -117,7 +117,10 @@ router.put('/like/:id', auth, async (request, response) => {
     const post = await Post.findById(request.params.id);
 
     // Check if the post has already been liked
-    if (post.likes.filter(like => like.user.toString() === request.user.id).length > 0) {
+    if (
+      post.likes.filter(like => like.user.toString() === request.user.id)
+        .length > 0
+    ) {
       return response.status(400).json({ msg: 'Post has been already liked' });
     }
     // Adding recent like at the beginning of the array
@@ -127,11 +130,10 @@ router.put('/like/:id', auth, async (request, response) => {
 
     response.json(post.likes);
   } catch (err) {
-    console.error(err.message);
+    console.error(err.msg);
     response.status(500).send('Server Error');
   }
 });
-
 
 // @route   PUT api/posts/unlike/:id
 // @desc    Like a post
@@ -142,7 +144,10 @@ router.put('/unlike/:id', auth, async (request, response) => {
     const post = await Post.findById(request.params.id);
 
     // Check if the post has already been liked
-    if (post.likes.filter(like => like.user.toString() === request.user.id).length === 0) {
+    if (
+      post.likes.filter(like => like.user.toString() === request.user.id)
+        .length === 0
+    ) {
       return response.status(400).json({ msg: 'Post has not yet been liked' });
     }
 
@@ -158,7 +163,7 @@ router.put('/unlike/:id', auth, async (request, response) => {
 
     response.json(post.likes);
   } catch (err) {
-    console.error(err.message);
+    console.error(err.msg);
     response.status(500).send('Server Error');
   }
 });
@@ -167,14 +172,15 @@ router.put('/unlike/:id', auth, async (request, response) => {
 // @desc    Coment on a post
 // @access  Private
 
-router.post("/comment/:id",
+router.post(
+  '/comment/:id',
   [
     auth,
     [
       check('text', 'Text is required')
         .not()
-        .isEmpty()
-    ]
+        .isEmpty(),
+    ],
   ],
   async (request, response) => {
     const errors = validationResult(request);
@@ -185,22 +191,22 @@ router.post("/comment/:id",
       const user = await User.findById(request.user.id).select('-password');
       const post = await Post.findById(request.params.id);
 
-      const newComment = ({
+      const newComment = {
         text: request.body.text,
         name: user.name,
         avatar: user.avatar,
-        user: request.user.id
-      });
+        user: request.user.id,
+      };
       // Adding recent post at the beginning of the array
       post.comments.unshift(newComment);
       await post.save();
 
       response.json(post.comments);
     } catch (err) {
-      console.error(err.message);
+      console.error(err.msg);
       response.status(500).send('Server Error');
     }
-  }
+  },
 );
 
 // @route   DELETE api/posts/comment/:id/:comment_id
@@ -213,7 +219,7 @@ router.delete('/comment/:id/:comment_id', auth, async (request, response) => {
 
     // Get the comment from the specific post
     const comment = post.comments.find(
-      comment => comment.id === request.params.comment_id
+      comment => comment.id === request.params.comment_id,
     );
 
     // Check if comment exists
@@ -237,7 +243,7 @@ router.delete('/comment/:id/:comment_id', auth, async (request, response) => {
 
     res.json(post.comments);
   } catch (err) {
-    console.error(err.message);
+    console.error(err.msg);
     res.status(500).send('Server Error');
   }
 });

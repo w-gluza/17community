@@ -22,7 +22,7 @@ router.get('/me', auth, async (request, response) => {
     }
     response.json(profile);
   } catch (err) {
-    console.error(err.message);
+    console.error(err.msg);
     response.status(500).send('Server Error');
   }
 });
@@ -30,13 +30,18 @@ router.get('/me', auth, async (request, response) => {
 // @route   GET api/profile
 // @desc    Create || update user profile
 // @access  Private
-router.post('/',
+router.post(
+  '/',
   [
     auth,
     [
-      check('status', 'Status is required').not().isEmpty(),
-      check('interests', 'Interests are required').not().isEmpty(),
-    ]
+      check('status', 'Status is required')
+        .not()
+        .isEmpty(),
+      check('interests', 'Interests are required')
+        .not()
+        .isEmpty(),
+    ],
   ],
 
   // Here we check for the errors
@@ -54,7 +59,7 @@ router.post('/',
       instagramusername,
       instagram,
       facebook,
-      linkedin
+      linkedin,
     } = request.body;
 
     // Build profile object fields
@@ -68,11 +73,13 @@ router.post('/',
 
     // Turning interests into array
     if (interests) {
-      profileFields.interests = interests.split(',').map(interest => interest.trim());
+      profileFields.interests = interests
+        .split(',')
+        .map(interest => interest.trim());
     }
 
     // Building social profiles object
-    profileFields.social = {}
+    profileFields.social = {};
     if (instagram) profileFields.social.instagram = instagram;
     if (facebook) profileFields.social.facebook = facebook;
     if (linkedin) profileFields.social.linkedin = linkedin;
@@ -86,7 +93,7 @@ router.post('/',
         profile = await Profile.findOneAndUpdate(
           { user: request.user.id },
           { $set: profileFields },
-          { new: true }
+          { new: true },
         );
 
         return response.json(profile);
@@ -97,10 +104,10 @@ router.post('/',
       await profile.save();
       response.json(profile);
     } catch (err) {
-      console.error(err.message);
+      console.error(err.msg);
       response.status(500).send('Server error');
     }
-  }
+  },
 );
 
 // @route   GET api/profile
@@ -112,7 +119,7 @@ router.get('/', async (request, response) => {
     const profiles = await Profile.find().populate('user', ['name', 'avatar']);
     response.json(profiles);
   } catch (err) {
-    console.error(err.message);
+    console.error(err.msg);
     response.status(500).send('Server error');
   }
 });
@@ -124,17 +131,21 @@ router.get('/', async (request, response) => {
 router.get('/user/:user_id', async (request, response) => {
   try {
     const profile = await Profile.findOne({
-      user: request.params.user_id
+      user: request.params.user_id,
     }).populate('user', ['name', 'avatar']);
 
     if (!profile)
-      return response.status(400).json({ msg: 'The specified user does not have a profile' });
+      return response
+        .status(400)
+        .json({ msg: 'The specified user does not have a profile' });
 
     response.json(profile);
   } catch (err) {
-    console.error(err.message);
-    if (err.kind == "ObjectId") {
-      return response.status(400).json({ msg: 'The specified user does not have a profile' });
+    console.error(err.msg);
+    if (err.kind == 'ObjectId') {
+      return response
+        .status(400)
+        .json({ msg: 'The specified user does not have a profile' });
     }
     response.status(500).send('Server error');
   }
@@ -154,9 +165,9 @@ router.delete('/', auth, async (request, response) => {
     // delete remove user
     await User.findOneAndRemove({ _id: request.user.id });
 
-    response.json({ msg: "User deleted" });
+    response.json({ msg: 'User deleted' });
   } catch (err) {
-    console.error(err.message);
+    console.error(err.msg);
     response.status(500).send('Server error');
   }
 });

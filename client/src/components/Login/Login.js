@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 // Material-UI Components Imports
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import Register from '../Register/Register';
 
 function Login() {
   const [values, setValues] = useState({
@@ -12,7 +11,7 @@ function Login() {
     password: '',
   });
 
-  const { email, password } = values;
+  // const { email, password } = values;
 
   const handleChange = name => e => {
     setValues({ ...values, [name]: e.target.value });

@@ -11,11 +11,11 @@ const connectDB = async () => {
       useNewUrlParser: true,
       useUnifiedTopology: true, // do not delete deprecation fix
       useCreateIndex: true,
-      useFindAndModify: false // do not delete deprecation fix
+      useFindAndModify: false, // do not delete deprecation fix
     });
     console.log('MongoDB connected...');
   } catch (error) {
-    console.error(error.message);
+    console.error(error.msg);
     // Stop process in case of an error
     process.exit(1);
   }
