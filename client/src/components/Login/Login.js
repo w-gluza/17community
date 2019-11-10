@@ -1,17 +1,22 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
+import PropTypes from 'prop-types';
+
+// Redux
+import { connect } from 'react-redux';
+import { login } from '../../actions/auth';
 
 // Material-UI Components Imports
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 
-function Login() {
+const Login = ({ login, isAuthenticated }) => {
   const [values, setValues] = useState({
     email: '',
     password: '',
   });
 
-  // const { email, password } = values;
+  const { email, password } = values;
 
   const handleChange = name => e => {
     setValues({ ...values, [name]: e.target.value });
@@ -19,8 +24,13 @@ function Login() {
 
   const onSubmit = async e => {
     e.preventDefault();
-    console.log('Success');
+    login(email, password);
   };
+
+  // Redirect if logged in
+  if (isAuthenticated) {
+    return <Redirect to='/dashboard' />;
+  }
 
   return (
     <>
@@ -58,6 +68,20 @@ function Login() {
       </section>
     </>
   );
-}
+};
 
-export default Login;
+Login.propTypes = {
+  login: PropTypes.func.isRequired,
+  isAuthenticated: PropTypes.bool,
+};
+
+const mapStateToProps = state => ({
+  isAuthenticated: state.auth.isAuthenticated,
+});
+
+export default connect(
+  mapStateToProps,
+  {
+    login,
+  },
+)(Login);
