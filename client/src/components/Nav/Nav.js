@@ -14,9 +14,9 @@ const Nav = ({ auth: { isAuthenticated, loading }, logout }) => {
         <Link to="/dashboard">Dashboard</Link>
       </li>
       <li>
-        <a onClick={logout} to="!#">
+        <button onClick={logout} to="!#">
           Logout
-        </a>
+        </button>
       </li>
     </ul>
   );

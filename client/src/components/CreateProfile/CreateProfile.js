@@ -1,13 +1,18 @@
-import React, { useState } from "react";
-import { Link, withRouter } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, withRouter, Redirect } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { createProfile } from "../../actions/profile";
+import { createProfile, getCurrentProfile } from "../../actions/profile";
 
 // Material-UI Components Imports
 import Button from "@material-ui/core/Button";
 
-const CreateProfile = ({ createProfile, history }) => {
+const CreateProfile = ({
+  createProfile,
+  getCurrentProfile,
+  profile: { profile, loading },
+  history
+}) => {
   const [formData, setFormData] = useState({
     website: "",
     location: "",
@@ -30,13 +35,18 @@ const CreateProfile = ({ createProfile, history }) => {
   } = formData;
   const onChange = e =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
-
   const onSubmit = e => {
     e.preventDefault();
     createProfile(formData, history);
   };
+  useEffect(() => {
+    getCurrentProfile();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [getCurrentProfile]);
 
-  return (
+  return loading && profile === null ? (
+    <Redirect to="/dashboard" />
+  ) : (
     <>
       <form onSubmit={e => onSubmit(e)}>
         <input
@@ -105,7 +115,13 @@ const CreateProfile = ({ createProfile, history }) => {
 };
 
 CreateProfile.propTypes = {
-  createProfile: PropTypes.func.isRequired
+  createProfile: PropTypes.func.isRequired,
+  getCurrentProfile: PropTypes.func.isRequired,
+  profile: PropTypes.object.isRequired
 };
-
-export default connect(null, { createProfile })(withRouter(CreateProfile));
+const mapStateToProps = state => ({
+  profile: state.profile
+});
+export default connect(mapStateToProps, { createProfile, getCurrentProfile })(
+  withRouter(CreateProfile)
+);
