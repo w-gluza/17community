@@ -38,6 +38,7 @@ const EditProfile = ({
       facebook: loading || !profile.social ? "" : profile.social.facebook,
       linkedin: loading || !profile.social ? "" : profile.social.linkedin
     });
+    // eslint-disable-next-line
   }, [loading, getCurrentProfile]);
 
   const {
