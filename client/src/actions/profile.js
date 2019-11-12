@@ -8,6 +8,7 @@ import { GET_PROFILE, PROFILE_ERROR } from "./types";
 export const getCurrentProfile = () => async dispatch => {
   try {
     const response = await axios.get("/api/profile/me");
+
     dispatch({
       type: GET_PROFILE,
       payload: response.data
@@ -20,7 +21,7 @@ export const getCurrentProfile = () => async dispatch => {
   }
 };
 
-// Create or update profile
+// Create || update profile
 export const createProfile = (
   formData,
   history,
@@ -32,20 +33,29 @@ export const createProfile = (
         "Content-Type": "application/json"
       }
     };
-    const response = await axios.post("./api/profile", formData, config);
+
+    const response = await axios.post("/api/profile", formData, config);
+
     dispatch({
       type: GET_PROFILE,
       payload: response.data
     });
 
-    dispatch(setAlert(edit ? "Profile updated" : "Profile created"));
+    dispatch(setAlert(edit ? "Profile Updated" : "Profile Created", "success"));
+
     if (!edit) {
       history.push("/dashboard");
     }
   } catch (error) {
     const errors = error.response.data.errors;
+
     if (errors) {
       errors.forEach(error => dispatch(setAlert(error.msg, "danger")));
     }
+
+    dispatch({
+      type: PROFILE_ERROR,
+      payload: { msg: error.response.statusText, status: error.response.status }
+    });
   }
 };

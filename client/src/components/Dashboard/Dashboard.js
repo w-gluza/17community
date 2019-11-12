@@ -2,8 +2,9 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { getCurrentProfile } from "../../actions/profile";
 import Loader from "../Loader/Loader";
+import DashboardActions from "../DasboardActions/DashboardActions";
+import { getCurrentProfile } from "../../actions/profile";
 
 const Dashboard = ({
   getCurrentProfile,
@@ -21,7 +22,9 @@ const Dashboard = ({
       <h1>Dashboard</h1>
       <p>Hello {user && user.name}</p>
       {profile !== null ? (
-        <>Has</>
+        <>
+          <DashboardActions />
+        </>
       ) : (
         <>
           <p>You have not yet setup the profile</p>
