@@ -1,29 +1,29 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const auth = require('../../middleware/auth');
-const { check, validationResult } = require('express-validator');
+const auth = require("../../middleware/auth");
+const { check, validationResult } = require("express-validator");
 
-const Profile = require('../../models/Profile');
-const User = require('../../models/User');
+const Profile = require("../../models/Profile");
+const User = require("../../models/User");
+const Post = require("../../models/Post");
 
 // @route   GET api/profile/me
 // @desc    Get current users profile
 // @access  Private
-router.get('/me', auth, async (request, response) => {
+router.get("/me", auth, async (request, response) => {
   try {
-    const profile = await Profile.findOne({ user: request.user.id }).populate(
-      'user',
-      ['name', 'avatar'],
-    );
+    const profile = await Profile.findOne({
+      user: request.user.id
+    }).populate("user", ["name", "avatar"]);
     if (!profile) {
       return response
         .status(400)
-        .json({ msg: 'The specified user does not have a profile' });
+        .json({ msg: "The specified user does not have a profile" });
     }
     response.json(profile);
   } catch (err) {
     console.error(err.msg);
-    response.status(500).send('Server Error');
+    response.status(500).send("Server Error");
   }
 });
 
@@ -31,17 +31,17 @@ router.get('/me', auth, async (request, response) => {
 // @desc    Create || update user profile
 // @access  Private
 router.post(
-  '/',
+  "/",
   [
     auth,
     [
-      check('status', 'Status is required')
+      check("status", "Status is required")
         .not()
         .isEmpty(),
-      check('interests', 'Interests are required')
+      check("interests", "Interests are required")
         .not()
-        .isEmpty(),
-    ],
+        .isEmpty()
+    ]
   ],
 
   // Here we check for the errors
@@ -59,7 +59,7 @@ router.post(
       instagramusername,
       instagram,
       facebook,
-      linkedin,
+      linkedin
     } = request.body;
 
     // Build profile object fields
@@ -74,7 +74,7 @@ router.post(
     // Turning interests into array
     if (interests) {
       profileFields.interests = interests
-        .split(',')
+        .split(",")
         .map(interest => interest.trim());
     }
 
@@ -93,7 +93,7 @@ router.post(
         profile = await Profile.findOneAndUpdate(
           { user: request.user.id },
           { $set: profileFields },
-          { new: true },
+          { new: true }
         );
 
         return response.json(profile);
@@ -105,22 +105,22 @@ router.post(
       response.json(profile);
     } catch (err) {
       console.error(err.msg);
-      response.status(500).send('Server error');
+      response.status(500).send("Server error");
     }
-  },
+  }
 );
 
 // @route   GET api/profile
 // @desc    Get all profiles
 // @access  Public
 
-router.get('/', async (request, response) => {
+router.get("/", async (request, response) => {
   try {
-    const profiles = await Profile.find().populate('user', ['name', 'avatar']);
+    const profiles = await Profile.find().populate("user", ["name", "avatar"]);
     response.json(profiles);
   } catch (err) {
     console.error(err.msg);
-    response.status(500).send('Server error');
+    response.status(500).send("Server error");
   }
 });
 
@@ -128,26 +128,26 @@ router.get('/', async (request, response) => {
 // @desc    Get profile by user ID
 // @access  Public
 
-router.get('/user/:user_id', async (request, response) => {
+router.get("/user/:user_id", async (request, response) => {
   try {
     const profile = await Profile.findOne({
-      user: request.params.user_id,
-    }).populate('user', ['name', 'avatar']);
+      user: request.params.user_id
+    }).populate("user", ["name", "avatar"]);
 
     if (!profile)
       return response
         .status(400)
-        .json({ msg: 'The specified user does not have a profile' });
+        .json({ msg: "The specified user does not have a profile" });
 
     response.json(profile);
   } catch (err) {
     console.error(err.msg);
-    if (err.kind == 'ObjectId') {
+    if (err.kind == "ObjectId") {
       return response
         .status(400)
-        .json({ msg: 'The specified user does not have a profile' });
+        .json({ msg: "The specified user does not have a profile" });
     }
-    response.status(500).send('Server error');
+    response.status(500).send("Server error");
   }
 });
 
@@ -155,9 +155,10 @@ router.get('/user/:user_id', async (request, response) => {
 // @desc    Delete profile, user & post
 // @access  Private
 
-router.delete('/', auth, async (request, response) => {
+router.delete("/", auth, async (request, response) => {
   try {
     // delete user posts
+    await Post.deleteMany({ user: request.user.id });
 
     // delete profile
     await Profile.findOneAndRemove({ user: request.user.id });
@@ -165,10 +166,10 @@ router.delete('/', auth, async (request, response) => {
     // delete remove user
     await User.findOneAndRemove({ _id: request.user.id });
 
-    response.json({ msg: 'User deleted' });
+    response.json({ msg: "User deleted" });
   } catch (err) {
     console.error(err.msg);
-    response.status(500).send('Server error');
+    response.status(500).send("Server error");
   }
 });
 

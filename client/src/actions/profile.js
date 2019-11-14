@@ -1,7 +1,12 @@
 import axios from "axios";
 import { setAlert } from "./alert";
 
-import { GET_PROFILE, PROFILE_ERROR } from "./types";
+import {
+  GET_PROFILE,
+  PROFILE_ERROR,
+  CLEAR_PROFILE,
+  ACCOUNT_DELETED
+} from "./types";
 
 // Get current profile
 
@@ -57,5 +62,36 @@ export const createProfile = (
       type: PROFILE_ERROR,
       payload: { msg: error.response.statusText, status: error.response.status }
     });
+  }
+};
+
+// DELETE ACCOUNT
+
+export const deleteAccount = () => async dispatch => {
+  if (
+    window.confirm(
+      "Are you sure you want to delete your account? Deleting your account is permanent and will remove all content including posts, comments, and profile avatar."
+    )
+  ) {
+    try {
+      const response = await axios.delete("/api/profile");
+
+      dispatch({
+        type: CLEAR_PROFILE
+      });
+      dispatch({
+        type: ACCOUNT_DELETED
+      });
+
+      dispatch(setAlert("Your account has been successfully deleted"));
+    } catch (error) {
+      dispatch({
+        type: PROFILE_ERROR,
+        payload: {
+          msg: error.response.statusText,
+          status: error.response.status
+        }
+      });
+    }
   }
 };

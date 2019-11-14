@@ -4,10 +4,11 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import Loader from "../Loader/Loader";
 import DashboardActions from "../DasboardActions/DashboardActions";
-import { getCurrentProfile } from "../../actions/profile";
+import { getCurrentProfile, deleteAccount } from "../../actions/profile";
 
 const Dashboard = ({
   getCurrentProfile,
+  deleteAccount,
   auth: { user },
   profile: { profile, loading }
 }) => {
@@ -24,11 +25,13 @@ const Dashboard = ({
       {profile !== null ? (
         <>
           <DashboardActions />
+          <button onClick={() => deleteAccount()}>Delete Account</button>
         </>
       ) : (
         <>
           <p>You have not yet setup the profile</p>
           <Link to="./create-profile">Create Profile</Link>
+          <button onClick={() => deleteAccount()}>Delete Account</button>
         </>
       )}
     </>
@@ -37,6 +40,7 @@ const Dashboard = ({
 
 Dashboard.propTypes = {
   getCurrentProfile: PropTypes.func.isRequired,
+  deleteAccount: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
   profile: PropTypes.object.isRequired
 };
@@ -46,4 +50,6 @@ const mapStateToProps = state => ({
   profile: state.profile
 });
 
-export default connect(mapStateToProps, { getCurrentProfile })(Dashboard);
+export default connect(mapStateToProps, { getCurrentProfile, deleteAccount })(
+  Dashboard
+);
