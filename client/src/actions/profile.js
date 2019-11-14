@@ -112,8 +112,6 @@ export const deleteAccount = () => async dispatch => {
     )
   ) {
     try {
-      const response = await axios.delete("/api/profile");
-
       dispatch({
         type: CLEAR_PROFILE
       });
