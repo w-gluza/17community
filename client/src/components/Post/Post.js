@@ -3,10 +3,11 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import Loader from "../Loader/Loader";
-import { getPost } from "../../actions/post";
 
 import PostItem from "../PostItem/PostItem";
+import Comment from "../Comment/Comment";
 import CommentForm from "../CommentForm/CommentForm";
+import { getPost } from "../../actions/post";
 
 const Post = ({ getPost, post: { post, loading }, match }) => {
   useEffect(() => {
@@ -22,6 +23,9 @@ const Post = ({ getPost, post: { post, loading }, match }) => {
       </Link>
       <PostItem post={post} />
       <CommentForm postId={post._id} />
+      {post.comments.map(comment => (
+        <Comment key={comment._id} comment={comment} postId={post._id} />
+      ))}
     </div>
   );
 };

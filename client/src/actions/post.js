@@ -9,7 +9,7 @@ import {
   DELETE_POST,
   GET_POST,
   ADD_COMMENT,
-  REMOVE_COMMENT
+  DELETE_COMMENT
 } from "./types";
 
 // Getting posts by get request
@@ -185,16 +185,17 @@ export const deleteComment = (postId, commentId) => async dispatch => {
     await axios.delete(`/api/posts/comment/${postId}/${commentId}`);
 
     dispatch({
-      type: REMOVE_COMMENT,
+      type: DELETE_COMMENT,
       payload: commentId
     });
-    dispatch(setAlert("Comment has been deleted", "success"));
-  } catch (error) {
+
+    dispatch(setAlert("Comment Removed", "success"));
+  } catch (err) {
     dispatch({
       type: POST_ERROR,
       payload: {
-        msg: error.response.statusText,
-        status: error.response.status
+        msg: err.response.statusText,
+        status: err.response.status
       }
     });
   }
