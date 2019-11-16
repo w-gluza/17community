@@ -24,7 +24,8 @@ const PostItem = ({
     <p>Likes: {likes.length}</p>
     <button onClick={() => addLike(_id)}>Add Like</button>
     <button onClick={() => removeLike(_id)}>RemoveLike</button>
-    <Link to={`/post/${_id}`}>
+    <Link to={`/posts/${_id}`}>
+      See more
       <p>Comments: {comments.length > 0 && <span>{comments.length}</span>}</p>
     </Link>
     {!auth.loading && user === auth.user._id && (
