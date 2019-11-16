@@ -4,12 +4,26 @@ import { connect } from "react-redux";
 import Loader from "../Loader/Loader";
 import { getPosts } from "../../actions/post";
 
-const Posts = ({ getPosts, post: { post, loading } }) => {
+import Post from "../Post/Post";
+
+const Posts = ({ getPosts, post: { posts, loading } }) => {
   useEffect(() => {
     getPosts();
   }, [getPosts]);
 
-  return <div></div>;
+  return loading ? (
+    <Loader />
+  ) : (
+    <>
+      <h2>Posts</h2>
+      <p>Welcome!</p>
+      <section>
+        {posts.map(post => {
+          return <Post key={post._id} post={post} />;
+        })}
+      </section>
+    </>
+  );
 };
 
 Posts.propTypes = {
