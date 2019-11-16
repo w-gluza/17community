@@ -4,7 +4,8 @@ import { connect } from "react-redux";
 import Loader from "../Loader/Loader";
 import { getPosts } from "../../actions/post";
 
-import Post from "../Post/Post";
+import PostItem from "../PostItem/PostItem";
+import PostForm from "../PostForm/PostForm";
 
 const Posts = ({ getPosts, post: { posts, loading } }) => {
   useEffect(() => {
@@ -17,9 +18,10 @@ const Posts = ({ getPosts, post: { posts, loading } }) => {
     <>
       <h2>Posts</h2>
       <p>Welcome!</p>
+      <PostForm />
       <section>
         {posts.map(post => (
-          <Post key={post._id} post={post} />
+          <PostItem key={post._id} post={post} />
         ))}
       </section>
     </>
