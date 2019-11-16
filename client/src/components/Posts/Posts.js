@@ -18,9 +18,9 @@ const Posts = ({ getPosts, post: { posts, loading } }) => {
       <h2>Posts</h2>
       <p>Welcome!</p>
       <section>
-        {posts.map(post => {
-          return <Post key={post._id} post={post} />;
-        })}
+        {posts.map(post => (
+          <Post key={post._id} post={post} />
+        ))}
       </section>
     </>
   );
