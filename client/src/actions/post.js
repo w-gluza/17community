@@ -44,7 +44,7 @@ export const addLike = id => async dispatch => {
     dispatch({
       type: POST_ERROR,
       payload: {
-        msg: "Post has been allready liked",
+        msg: error.response.statusText,
         status: error.response.status
       }
     });
