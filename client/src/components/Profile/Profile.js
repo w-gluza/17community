@@ -5,6 +5,9 @@ import { connect } from "react-redux";
 import Loader from "../Loader/Loader";
 import { getProfileById } from "../../actions/profile";
 
+import ProfileHeader from "../ProfileHeader/ProfileHeader";
+import ProfileAbout from "../ProfileAbout/ProfileAbout";
+
 const Profile = ({
   getProfileById,
   profile: { profile, loading },
@@ -15,7 +18,7 @@ const Profile = ({
 
   useEffect(() => {
     getProfileById(match.params.id);
-  }, [getProfileById]);
+  }, [getProfileById, match.params.id]);
 
   return (
     <>
@@ -27,8 +30,13 @@ const Profile = ({
           {auth.isAuthenticated &&
             auth.loading === false &&
             auth.user._id === profile.user._id && (
-              <Link to="./edit-profile">Edit Profile</Link>
+              <Link to="/edit-profile">Edit Profile</Link>
             )}
+
+          <div>
+            <ProfileHeader profile={profile} />
+            <ProfileAbout profile={profile} />
+          </div>
         </main>
       )}
     </>
