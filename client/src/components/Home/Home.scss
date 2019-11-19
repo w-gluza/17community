@@ -1,0 +1,25 @@
+.home {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 3fr 2fr;
+  .article {
+    grid-column: 1/2;
+    grid-row: 1/2;
+  }
+  .figure {
+    grid-column: 2/3;
+    grid-row: 1/2;
+  }
+  .slider-section {
+    grid-column: 1/-1;
+    grid-row: 2/3;
+  }
+  .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 1rem;
+    background-color: var(--color-light);
+  }
+}

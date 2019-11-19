@@ -46,7 +46,7 @@ h2 {
   font-weight: var(--font-weight-regular);
   line-height: var(--line-height-regular);
   letter-spacing: var(--letter-spacing-regular);
-  color: var(--color-primary);
+  color: var(--color-black);
 }
 
 h3 {
@@ -62,5 +62,25 @@ p {
   font-weight: var(--font-weight-light);
   line-height: var(--line-height-regular);
   letter-spacing: var(--letter-spacing-regular);
-  color: var(--color-primary);
+  color: var(--color-black);
+}
+
+.nav,
+.section {
+  padding: var(--padding-large);
+}
+
+/* Grid -------------------------------- */
+
+.page-container {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+}
+
+.nav {
+  grid-column: 1/2;
+}
+
+.main {
+  grid-column: 2/3;
 }

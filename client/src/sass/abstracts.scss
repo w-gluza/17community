@@ -13,6 +13,7 @@ html {
   --color-primary: #60a3d9;
   --color-secondary: #32324a;
   --color-background: #fefefe;
+  --color-light: #e1e1eb;
   --color-white: #fff;
   --color-black: #111;
 
@@ -31,6 +32,10 @@ html {
   --letter-spacing-small: 0.1em;
   --letter-spacing-regular: 0.15em;
   --letter-spacing-large: 0.2em;
+
+  --padding-small: 1rem;
+  --padding-regular: 2rem;
+  --padding-large: 3rem;
 
   --nav-height: 8vh;
 }

@@ -1,3 +1,10 @@
 .nav {
+  height: 100vh;
   display: flex;
+  flex-direction: column;
+  background-color: var(--color-secondary);
+}
+
+.nav a {
+  color: var(--color-white);
 }

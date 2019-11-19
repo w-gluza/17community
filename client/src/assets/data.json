@@ -4,125 +4,127 @@
     "subtitle": "Working together to build a better future for everyone.",
     "illustration": "./illustrations/00_community.svg",
     "alt": "community",
-    "page": 0
+    "page": "0"
   },
-  "stop-poverty": {
-    "title": "Stop poverty",
-    "subtitle": "End poverty in all its forms everywhere.",
-    "illustration": "./illustrations/01_stop_poverty.svg",
-    "alt": "stop poverty",
-    "page": "1"
-  },
-  "zero-hunger": {
-    "title": "Zero hunger",
-    "subtitle": "End hunger, achieve food security and improved nutrition and promote sustainable agriculture.",
-    "illustration": "./illustrations/02_zero_hunger.svg",
-    "alt": "zero hunger",
-    "page": "2"
-  },
-  "good-health": {
-    "title": "Good health",
-    "subtitle": "Ensure healthy lives and promote well-being for all at all ages.",
-    "illustration": "./illustrations/03_good_health.svg",
-    "alt": "good health",
-    "page": "3"
-  },
-  "quality-education": {
-    "title": "Quality education",
-    "subtitle": "Ensure inclusive and equitable quality education and promote lifelong learning opportunities for all.",
-    "illustration": "./illustrations/04_quality_education.svg",
-    "alt": "quality education",
-    "page": "4"
-  },
-  "gender-equality": {
-    "title": "Gender equality",
-    "subtitle": "Achieve gender equality and empower all women and girls.",
-    "illustration": "./illustrations/05_gender_equality.svg",
-    "alt": "gender equality",
-    "page": "5"
-  },
-  "clean-water": {
-    "title": "Clean water",
-    "subtitle": "Ensure availability and sustainable management of water and sanitation for all.",
-    "illustration": "./illustrations/06_clean_water.svg",
-    "alt": "clean water",
-    "page": "6"
-  },
-  "affordable-energy": {
-    "title": "Affordable energy",
-    "subtitle": "Ensure access to affordable, reliable, sustainable and modern energy for all.",
-    "illustration": "./illustrations/07_affordable_energy.svg",
-    "alt": "affordable energy",
-    "page": "7"
-  },
-  "economic-growth": {
-    "title": "Economic growth",
-    "subtitle": "Promote sustained, inclusive and sustainable economic growth, full and productive employment and decent work for all.",
-    "illustration": "./illustrations/08_economic_growth.svg",
-    "alt": "economic growth",
-    "page": "8"
-  },
-  "industry-innovation": {
-    "title": "Industry innovation",
-    "subtitle": "Build resilient infrastructure, promote inclusive and sustainable industrialization and foster innovation.",
-    "illustration": "./illustrations/09_industry_innovation.svg",
-    "alt": "industry innovation",
-    "page": "9"
-  },
-  "reduced-inequalities": {
-    "title": "Reduced inequalities",
-    "subtitle": "Reduce inequality within and among countries.",
-    "illustration": "./illustrations/10_reduced_inequalities.svg",
-    "alt": "reduced inequalities",
-    "page": "10"
-  },
-  "sustainable-communities": {
-    "title": "Sustainable communities",
-    "subtitle": "Make cities and human settlements inclusive, safe, resilient and sustainable.",
-    "illustration": "./illustrations/11_sustainable_communities.svg",
-    "alt": "sustainable communities",
-    "page": "11"
-  },
-  "responsible-consumtion": {
-    "title": "Responsible consumption",
-    "subtitle": "Ensure sustainable consumption and production patterns.",
-    "illustration": "./illustrations/12_responsible_consumption.svg",
-    "alt": "responsible consumption",
-    "page": "12"
-  },
-  "climate-action": {
-    "title": "Climate action",
-    "subtitle": "Take urgent action to combat climate change and its impacts.",
-    "illustration": "./illustrations/13_climate_action.svg",
-    "alt": "climate action",
-    "page": "13"
-  },
-  "life-below-water": {
-    "title": "Life below water",
-    "subtitle": "Conserve and sustainably use the oceans, seas and marine resources for sustainable development.",
-    "illustration": "./illustrations/14_life_below_water.svg",
-    "alt": "life below water",
-    "page": "14"
-  },
-  "life-on-land": {
-    "title": "Life on land",
-    "subtitle": "Protect, restore and promote sustainable use of ecosystems.",
-    "illustration": "./illustrations/15_life_on_land.svg",
-    "alt": "life on land",
-    "page": "15"
-  },
-  "peace": {
-    "title": "Peace",
-    "subtitle": "Promote peaceful and inclusive societies for sustainable development, provide access to justice for all and build effective, accountable and inclusive institutions at all levels.",
-    "illustration": "./illustrations/16_peace.svg",
-    "alt": "peace",
-    "page": "16"
-  },
-  "partnerships": {
-    "title": "Partnerships",
-    "subtitle": "Strengthen the means of implementation and revitalize the global partnership for sustainable development.",
-    "illustration": "./illustrations/17_partnerships.svg",
-    "alt": "partnerships",
-    "page": "17"
-  }
+  "goals": [
+    {
+      "title": "Stop poverty",
+      "subtitle": "End poverty in all its forms everywhere.",
+      "illustration": "./illustrations/01_stop_poverty.svg",
+      "alt": "stop poverty",
+      "page": "1"
+    },
+    {
+      "title": "Zero hunger",
+      "subtitle": "End hunger, achieve food security and improved nutrition and promote sustainable agriculture.",
+      "illustration": "./illustrations/02_zero_hunger.svg",
+      "alt": "zero hunger",
+      "page": "2"
+    },
+    {
+      "title": "Good health",
+      "subtitle": "Ensure healthy lives and promote well-being for all at all ages.",
+      "illustration": "./illustrations/03_good_health.svg",
+      "alt": "good health",
+      "page": "3"
+    },
+    {
+      "title": "Quality education",
+      "subtitle": "Ensure inclusive and equitable quality education and promote lifelong learning opportunities for all.",
+      "illustration": "./illustrations/04_quality_education.svg",
+      "alt": "quality education",
+      "page": "4"
+    },
+    {
+      "title": "Gender equality",
+      "subtitle": "Achieve gender equality and empower all women and girls.",
+      "illustration": "./illustrations/05_gender_equality.svg",
+      "alt": "gender equality",
+      "page": "5"
+    },
+    {
+      "title": "Clean water",
+      "subtitle": "Ensure availability and sustainable management of water and sanitation for all.",
+      "illustration": "./illustrations/06_clean_water.svg",
+      "alt": "clean water",
+      "page": "6"
+    },
+    {
+      "title": "Affordable energy",
+      "subtitle": "Ensure access to affordable, reliable, sustainable and modern energy for all.",
+      "illustration": "./illustrations/07_affordable_energy.svg",
+      "alt": "affordable energy",
+      "page": "7"
+    },
+    {
+      "title": "Economic growth",
+      "subtitle": "Promote sustained, inclusive and sustainable economic growth, full and productive employment and decent work for all.",
+      "illustration": "./illustrations/08_economic_growth.svg",
+      "alt": "economic growth",
+      "page": "8"
+    },
+    {
+      "title": "Industry innovation",
+      "subtitle": "Build resilient infrastructure, promote inclusive and sustainable industrialization and foster innovation.",
+      "illustration": "./illustrations/09_industry_innovation.svg",
+      "alt": "industry innovation",
+      "page": "9"
+    },
+    {
+      "title": "Reduced inequalities",
+      "subtitle": "Reduce inequality within and among countries.",
+      "illustration": "./illustrations/10_reduced_inequalities.svg",
+      "alt": "reduced inequalities",
+      "page": "10"
+    },
+    {
+      "title": "Sustainable communities",
+      "subtitle": "Make cities and human settlements inclusive, safe, resilient and sustainable.",
+      "illustration": "./illustrations/11_sustainable_communities.svg",
+      "alt": "sustainable communities",
+      "page": "11"
+    },
+    {
+      "title": "Responsible consumption",
+      "subtitle": "Ensure sustainable consumption and production patterns.",
+      "illustration": "./illustrations/12_responsible_consumption.svg",
+      "alt": "responsible consumption",
+      "page": "12"
+    },
+    {
+      "title": "Climate action",
+      "subtitle": "Take urgent action to combat climate change and its impacts.",
+      "illustration": "./illustrations/13_climate_action.svg",
+      "alt": "climate action",
+      "page": "13"
+    },
+    {
+      "title": "Life below water",
+      "subtitle": "Conserve and sustainably use the oceans, seas and marine resources for sustainable development.",
+      "illustration": "./illustrations/14_life_below_water.svg",
+      "alt": "life below water",
+      "page": "14"
+    },
+    {
+      "title": "Life on land",
+      "subtitle": "Protect, restore and promote sustainable use of ecosystems.",
+      "illustration": "./illustrations/15_life_on_land.svg",
+      "alt": "life on land",
+      "page": "15"
+    },
+    {
+      "title": "Peace",
+      "subtitle": "Promote peaceful and inclusive societies for sustainable development, provide access to justice for all and build effective, accountable and inclusive institutions at all levels.",
+      "illustration": "./illustrations/16_peace.svg",
+      "alt": "peace",
+      "page": "16"
+    },
+    {
+      "title": "Partnerships",
+      "subtitle": "Strengthen the means of implementation and revitalize the global partnership for sustainable development.",
+      "illustration": "./illustrations/17_partnerships.svg",
+      "alt": "partnerships",
+      "page": "17"
+    }
+  ]
 }
