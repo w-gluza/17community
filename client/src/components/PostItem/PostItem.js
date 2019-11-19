@@ -21,7 +21,7 @@ const PostItem = ({
     <p>
       <Moment format="YYYY/MM/DD">{date}</Moment>
     </p>
-    <p>Likes: {likes.length}</p>
+    <p>Likes: {likes.length > 0 && <span>{likes.length}</span>}</p>
     <button onClick={() => addLike(_id)}>Add Like</button>
     <button onClick={() => removeLike(_id)}>RemoveLike</button>
     <Link to={`/posts/${_id}`}>
