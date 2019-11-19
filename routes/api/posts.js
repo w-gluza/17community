@@ -241,10 +241,10 @@ router.delete("/comment/:id/:comment_id", auth, async (request, response) => {
 
     await post.save();
 
-    res.json(post.comments);
+    response.json(post.comments);
   } catch (err) {
     console.error(err.msg);
-    res.status(500).send("Server Error");
+    response.status(500).send("Server Error");
   }
 });
 
