@@ -1,36 +1,30 @@
-.register-section {
-  //   height: calc(100vh - var(--nav-height));
-  height: 100vh;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  .article,
-  .figure {
-    display: flex;
-    flex-direction: column;
-    padding: 5rem 8rem;
+.article,
+.figure {
+  display: flex;
+  flex-direction: column;
+  padding: 5rem 8rem;
+}
+.article {
+  background-color: var(--color-secondary);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+.figure {
+  background-color: var(--color-background);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .figcaption {
+    align-self: flex-start;
   }
-  .article {
-    background-color: var(--color-secondary);
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-  }
-  .figure {
-    background-color: var(--color-background);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    .figcaption {
-      align-self: flex-start;
-    }
-  }
-  .register-form {
+}
+.register-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  .text-field {
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    .text-field {
-      width: 100%;
-    }
   }
 }

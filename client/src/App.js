@@ -10,7 +10,7 @@ import setAuthToken from "./utilities/setAuthToken";
 
 // components import
 import Home from "./components/Home/Home";
-import Auth from "./components/Auth/Auth";
+import Authentication from "./components/Authentication/Authentication";
 import Nav from "./components/Nav/Nav";
 import Alert from "./components/Alert/Alert";
 import Dashboard from "./components/Dashboard/Dashboard";
@@ -37,7 +37,11 @@ const App = () => {
 
       <Router>
         <Switch>
-          <Route exact path="/auth" render={() => <Route component={Auth} />} />
+          <Route
+            exact
+            path="/authentication"
+            render={() => <Route component={Authentication} />}
+          />
 
           <div className="page-container">
             <Nav />

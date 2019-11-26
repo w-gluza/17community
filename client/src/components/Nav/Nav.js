@@ -36,10 +36,10 @@ const Nav = ({ auth: { isAuthenticated, loading }, logout }) => {
         <Link to="/members">Members</Link>
       </li>
       <li>
-        <Link to="/auth">SignIn</Link>
+        <Link to="/authentication">SignIn</Link>
       </li>
       <li>
-        <Link to="/auth">Login</Link>
+        <Link to="/authentication">Login</Link>
       </li>
     </ul>
   );

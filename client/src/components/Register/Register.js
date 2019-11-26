@@ -3,8 +3,6 @@ import { Link, Redirect } from "react-router-dom";
 import "./Register.scss";
 import PropTypes from "prop-types";
 
-import illustration from "../../assets/illustrations/00_community.svg";
-
 // Redux
 import { connect } from "react-redux";
 import { setAlert } from "../../actions/alert";
@@ -44,81 +42,71 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
   }
 
   return (
-    <>
-      <section className="register-section">
-        <article className="article">
-          <h3>Sign Up</h3>
-          <form
-            className="register-form"
-            onSubmit={e => onSubmit(e)}
-            noValidate
-            autoComplete="off"
-          >
-            <TextField
-              id="outlined-name"
-              label="Name"
-              className="text-field"
-              name="name"
-              onChange={handleChange("name")}
-              margin="normal"
-              variant="outlined"
-              // required
-            />
-            <TextField
-              id="outlined-email-input"
-              label="Email"
-              className="text-field"
-              type="email"
-              name="email"
-              onChange={handleChange("email")}
-              autoComplete="email"
-              margin="normal"
-              variant="outlined"
-              // required
-            />
-            <TextField
-              id="outlined-password-input"
-              label="Password"
-              className="text-field"
-              type="password"
-              name="password"
-              onChange={handleChange("password")}
-              margin="normal"
-              variant="outlined"
-              // required
-            />
-            <TextField
-              id="outlined-password-input-check"
-              label="Repeat Password"
-              className="text-field"
-              type="password"
-              name="passwordCheck"
-              onChange={handleChange("passwordCheck")}
-              margin="normal"
-              variant="outlined"
-              // required
-            />
-            <Button
-              type="submit"
-              variant="outlined"
-              color="primary"
-              // className={classes.button}
-            >
-              Sign Up
-            </Button>
-          </form>
-          <p>
-            Already have an account? <Link to="/auth">Log In</Link>
-          </p>
-        </article>
-        <figure className="figure">
-          <figcaption className="figcaption">
-            <h2>17 Community</h2>
-          </figcaption>
-          <img src={illustration} alt="community login" />
-        </figure>
-      </section>
-    </>
+    <article className="article">
+      <h3>Sign Up</h3>
+      <form
+        className="register-form"
+        onSubmit={e => onSubmit(e)}
+        noValidate
+        autoComplete="off"
+      >
+        <TextField
+          id="outlined-name"
+          label="Name"
+          className="text-field"
+          name="name"
+          onChange={handleChange("name")}
+          margin="normal"
+          variant="outlined"
+          // required
+        />
+        <TextField
+          id="outlined-email-input"
+          label="Email"
+          className="text-field"
+          type="email"
+          name="email"
+          onChange={handleChange("email")}
+          autoComplete="email"
+          margin="normal"
+          variant="outlined"
+          // required
+        />
+        <TextField
+          id="outlined-password-input"
+          label="Password"
+          className="text-field"
+          type="password"
+          name="password"
+          onChange={handleChange("password")}
+          margin="normal"
+          variant="outlined"
+          // required
+        />
+        <TextField
+          id="outlined-password-input-check"
+          label="Repeat Password"
+          className="text-field"
+          type="password"
+          name="passwordCheck"
+          onChange={handleChange("passwordCheck")}
+          margin="normal"
+          variant="outlined"
+          // required
+        />
+        <Button
+          type="submit"
+          variant="outlined"
+          color="primary"
+          // className={classes.button}
+        >
+          Sign Up
+        </Button>
+      </form>
+      <p>
+        Already have an account? <Link to="/auth">Log In</Link>
+      </p>
+    </article>
   );
 };
 
