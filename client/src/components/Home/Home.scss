@@ -1,4 +1,4 @@
-.home {
+.section__home {
   height: 100vh;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -11,15 +11,25 @@
     grid-column: 2/3;
     grid-row: 1/2;
   }
-  .slider-section {
+  .slider {
     grid-column: 1/-1;
     grid-row: 2/3;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    overflow-x: auto;
   }
   .card {
+    width: 150px;
+    height: 150px;
+    flex: 0 0 auto;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     margin: 1rem;
+    padding: 1rem;
     background-color: var(--color-light);
+    word-break: break-word;
   }
 }
