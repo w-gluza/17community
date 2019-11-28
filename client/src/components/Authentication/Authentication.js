@@ -9,7 +9,7 @@ import Button from "@material-ui/core/Button";
 import illustration from "../../assets/illustrations/00_community.svg";
 
 const Authentication = () => {
-  const [menuState, setMenuState] = useState();
+  const [menuState, setMenuState] = useState("SignUp");
 
   console.log(menuState);
   return (
@@ -27,17 +27,37 @@ const Authentication = () => {
           <ButtonGroup>
             <Button
               color="primary"
-              variant="contained"
+              variant={menuState === "SignUp" ? "contained" : "outlined"}
               onClick={() => setMenuState("SignUp")}
             >
               Sign Up
             </Button>
-            <Button color="primary" onClick={() => setMenuState("LogIn")}>
+            <Button
+              color="primary"
+              variant={menuState === "LogIn" ? "contained" : "outlined"}
+              onClick={() => setMenuState("LogIn")}
+            >
               Log In
             </Button>
           </ButtonGroup>
         </div>
-        {menuState === "LogIn" ? <Login /> : <Register />}
+        {menuState === "LogIn" ? (
+          <>
+            <Login />
+            <p className="auth__paragraph">
+              Don't have an account?{" "}
+              <button onClick={() => setMenuState("SignUp")}>Sign Up!</button>
+            </p>
+          </>
+        ) : (
+          <>
+            <Register />
+            <p className="auth__paragraph">
+              Already have an account?{" "}
+              <button onClick={() => setMenuState("LogIn")}>Log In!</button>
+            </p>
+          </>
+        )}
       </section>
     </main>
   );

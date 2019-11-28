@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import PropTypes from "prop-types";
 import theme from "../../theme";
 import { ThemeProvider } from "@material-ui/styles";
@@ -77,9 +77,6 @@ const Login = ({ login, isAuthenticated }) => {
             Log In
           </Button>
         </form>
-        <p className="auth__paragraph">
-          Don't have an account? <Link to="/register">Sign Up!</Link>
-        </p>
       </article>
     </ThemeProvider>
   );
