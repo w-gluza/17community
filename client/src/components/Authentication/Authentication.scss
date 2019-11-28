@@ -1,4 +1,43 @@
-.main_auth {
+.main__auth {
   display: grid;
   grid-template-columns: 1fr 1fr;
+}
+.auth__section {
+  min-height: 100vh;
+  background-color: var(--color-secondary);
+}
+.auth__article {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 3rem 8rem;
+}
+.auth__form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 2rem 0rem;
+  .text-field {
+    width: 100%;
+    color: var(--color-white);
+  }
+}
+.auth__paragraph {
+  color: var(--color-white);
+  a {
+    color: var(--color-primary);
+  }
+}
+.buttons__container {
+  width: 100%;
+  display: grid;
+  gap: 1rem;
+  justify-content: end;
+  padding: 3rem 8rem 1rem 8rem;
+}
+
+.button__group {
+  width: 300px;
 }
