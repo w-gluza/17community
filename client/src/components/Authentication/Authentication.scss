@@ -1,6 +1,17 @@
 .main__auth {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
+  @include respond(tab-port) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.auth__aside {
+  display: none;
+  @include respond(tab-port) {
+    display: grid;
+  }
 }
 .auth__section {
   min-height: 100vh;
