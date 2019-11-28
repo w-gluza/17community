@@ -17,9 +17,9 @@ html {
   --color-white: #fff;
   --color-black: #111;
 
-  --font-size-small: 1.2rem;
-  --font-size-regular: 1.6rem;
-  --font-size-large: 3rem;
+  --font-size-small: 1.6rem;
+  --font-size-regular: 1.8rem;
+  --font-size-large: 2.2rem;
 
   --font-weight-light: 300;
   --font-weight-regular: 400;
@@ -36,6 +36,10 @@ html {
   --padding-small: 1rem;
   --padding-regular: 2rem;
   --padding-large: 3rem;
+
+  --text-padding-small: 1rem 0;
+  --text-padding-regular: 2rem 0;
+  --text-padding-large: 3rem 0;
 
   --nav-height: 8vh;
 }

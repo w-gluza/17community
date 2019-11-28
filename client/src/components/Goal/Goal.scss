@@ -1,0 +1,13 @@
+.goal {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+
+.goal-description {
+  padding: 0 8rem 0 0;
+}
+
+.goal-img {
+  padding: 2rem;
+}

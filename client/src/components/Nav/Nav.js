@@ -1,28 +1,52 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import "./Nav.scss";
-import PropTypes from "prop-types";
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 // Redux
-import { connect } from "react-redux";
-import { logout } from "../../actions/auth";
+import { connect } from 'react-redux';
+import { logout } from '../../actions/auth';
 
-const Nav = ({ auth: { isAuthenticated, loading }, logout }) => {
+const Nav = ({
+  auth: { isAuthenticated, loading },
+  logout,
+  isMenuOpen,
+  onToggleMenu,
+}) => {
+  // const toggleMenuClasses = isMenuOpen ? 'open' : 'close';
+  const [isSmallScreen, setSmallScreen] = useState(true);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(min-width: 700px)');
+    mediaQuery.addListener(handleMediaQueryChange);
+    handleMediaQueryChange(mediaQuery);
+    return () => {
+      mediaQuery.removeListener(handleMediaQueryChange);
+    };
+  }, []);
+
+  const handleMediaQueryChange = mediaQuery => {
+    if (mediaQuery.matches) {
+      setSmallScreen(false);
+    } else {
+      setSmallScreen(true);
+    }
+  };
+
   const authLinks = (
     <ul>
       <li>
-        <Link to="/posts">Posts</Link>
+        <Link to='/dashboard'>Dashboard</Link>
       </li>
       <li>
-        <Link to="/profiles">Profiles</Link>
+        <Link to='/members'>Members</Link>
       </li>
       <li>
-        <Link to="/dashboard">Dashboard</Link>
+        <Link to='/posts'>Posts</Link>
       </li>
       <li>
-        <button onClick={logout} to="!#">
-          Logout
-        </button>
+        <li onClick={logout} to='!#'>
+          <span>Log Out</span>
+        </li>
       </li>
     </ul>
   );
@@ -30,24 +54,21 @@ const Nav = ({ auth: { isAuthenticated, loading }, logout }) => {
   const guestLinks = (
     <ul>
       <li>
-        <Link to="/profiles">Profiles</Link>
+        <Link to='/members'>Members</Link>
       </li>
       <li>
-        <Link to="/members">Members</Link>
+        <Link to='/authentication'>Sign Up</Link>
       </li>
       <li>
-        <Link to="/authentication">SignIn</Link>
-      </li>
-      <li>
-        <Link to="/authentication">Login</Link>
+        <Link to='/authentication'>Log In</Link>
       </li>
     </ul>
   );
   return (
     <>
-      <nav className="nav">
+      <nav className={isSmallScreen ? 'nav' : 'nav nav-lg'}>
         <h1>
-          <Link to="/">17 Community</Link>
+          <Link to='/'>17 Community</Link>
         </h1>
         {!loading && <>{isAuthenticated ? authLinks : guestLinks}</>}
       </nav>
@@ -57,11 +78,11 @@ const Nav = ({ auth: { isAuthenticated, loading }, logout }) => {
 
 Nav.propTypes = {
   logout: PropTypes.func.isRequired,
-  auth: PropTypes.object.isRequired
+  auth: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = state => ({
-  auth: state.auth
+  auth: state.auth,
 });
 
 export default connect(mapStateToProps, { logout })(Nav);

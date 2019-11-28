@@ -25,8 +25,8 @@ a:active {
 /* ------------------------------------- */
 
 body {
-  font-size: var(--font-size-regular);
-  font-weight: var(--font-weight-regular);
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-light);
   background-color: var(--color-background);
   color: var(--color-blue-dark);
 }
@@ -50,11 +50,20 @@ h2 {
 }
 
 h3 {
-  font-size: var(--font-size-regular);
+  font-size: var(--font-size-large);
   font-weight: var(--font-weight-regular);
   line-height: var(--line-height-regular);
   letter-spacing: var(--letter-spacing-regular);
   color: var(--color-primary);
+  padding: var(--text-padding-regular);
+}
+
+h4 {
+  font-size: var(--font-size-regular);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-regular);
+  letter-spacing: var(--letter-spacing-regular);
+  color: var(--color-black);
 }
 
 p {
