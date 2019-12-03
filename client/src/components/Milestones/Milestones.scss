@@ -1,0 +1,40 @@
+.milestones-container {
+  width: 90%;
+  min-height: 50%;
+  margin: 2rem auto;
+  padding: 20px 10px;
+  color: black;
+}
+
+.tasks {
+  margin: 2rem 0;
+}
+
+.task {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--color-grey);
+  margin: 1rem 0;
+  padding: 1rem;
+}
+
+.task-input {
+  width: 100%;
+}
+.task button {
+  background: rgb(12, 124, 251);
+  border-radius: 5px;
+  margin: 0px 5px;
+  padding: 3px 5px;
+  border: none;
+  cursor: pointer;
+  color: white;
+  float: right;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}

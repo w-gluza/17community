@@ -38,15 +38,16 @@ const Nav = ({
         <Link to='/dashboard'>Dashboard</Link>
       </li>
       <li>
-        <Link to='/members'>Members</Link>
+        <Link to='/profiles'>Members</Link>
+      </li>
+      <li>
+        <Link to='/milestones'>Milestones</Link>
       </li>
       <li>
         <Link to='/posts'>Posts</Link>
       </li>
-      <li>
-        <li onClick={logout} to='!#'>
-          <span>Log Out</span>
-        </li>
+      <li onClick={logout} to='!#'>
+        <span>Log Out</span>
       </li>
     </ul>
   );
@@ -54,7 +55,7 @@ const Nav = ({
   const guestLinks = (
     <ul>
       <li>
-        <Link to='/members'>Members</Link>
+        <Link to='/profiles'>Members</Link>
       </li>
       <li>
         <Link to='/authentication'>Sign Up</Link>
