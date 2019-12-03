@@ -12,7 +12,8 @@ const ProfilePreview = ({
 }) => {
   return (
     <article className='member-card'>
-      <img src={avatar} alt='avatar'></img>
+      <img className='avatar' src={avatar} alt='avatar'></img>
+
       <div>
         <h3>{name}</h3>
         <p>{status}</p>

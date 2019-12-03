@@ -1,27 +1,27 @@
-const express = require("express");
-const jwt = require("jsonwebtoken");
-const config = require("config");
+const express = require('express');
+const jwt = require('jsonwebtoken');
+const config = require('config');
 const router = express.Router();
-const gravatar = require("gravatar");
-const bcrypt = require("bcryptjs");
-const { check, validationResult } = require("express-validator"); // express-validator/check are deprecated use express-validator
+const gravatar = require('gravatar');
+const bcrypt = require('bcryptjs');
+const { check, validationResult } = require('express-validator'); // express-validator/check are deprecated use express-validator
 
-const User = require("../../models/User");
+const User = require('../../models/User');
 
 // @route   POST api/users
 // @desc    Test route
 // @access  Public
 router.post(
-  "/",
+  '/',
   [
-    check("name", "Name is required")
+    check('name', 'Name is required')
       .not()
       .isEmpty(),
-    check("email", "Please include a valid email").isEmail(),
+    check('email', 'Please include a valid email').isEmail(),
     check(
-      "password",
-      "Please enter a password with 5 or more characters"
-    ).isLength({ min: 5 })
+      'password',
+      'Please enter a password with 5 or more characters',
+    ).isLength({ min: 5 }),
   ],
   async (request, response) => {
     const errors = validationResult(request);
@@ -37,13 +37,13 @@ router.post(
       if (user) {
         return response
           .status(400)
-          .json({ errors: [{ msg: "User already exists" }] });
+          .json({ errors: [{ msg: 'User already exists' }] });
       }
       // Get Gravatar
       const avatar = gravatar.url(email, {
-        s: "200",
-        r: "pg",
-        d: "mm"
+        s: '200',
+        r: 'pg',
+        d: 'mm',
       });
 
       // Create the user
@@ -51,7 +51,7 @@ router.post(
         name,
         email,
         avatar,
-        password
+        password,
       });
       // Encrypt the Password
       const salt = await bcrypt.genSalt(10);
@@ -65,26 +65,26 @@ router.post(
       const payload = {
         user: {
           // In MongoDB we would write user._id, however Mongoose allows user.id
-          id: user.id
-        }
+          id: user.id,
+        },
       };
 
       // Return JSON Web Token
       jwt.sign(
         payload,
-        config.get("jwtSecret"),
+        config.get('jwtSecret'),
         // Expiration optional
         { expiresIn: 36000 },
         (error, token) => {
           if (error) throw error;
           response.json({ token });
-        }
+        },
       );
     } catch (err) {
       console.error(err.msg);
-      response.status(500).send("Server error");
+      response.status(500).send('Server error');
     }
-  }
+  },
 );
 
 module.exports = router;
