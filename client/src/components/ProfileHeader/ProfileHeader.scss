@@ -2,3 +2,24 @@
   border-radius: 50%;
   max-height: 150px;
 }
+.icons__container {
+  display: grid;
+  grid-template-columns: repeat(3, max-content);
+  gap: 1.2rem;
+}
+.icon {
+  height: 2.5rem;
+  width: 2.5rem;
+  fill: var(--color-secondary);
+  :hover {
+    fill: var(--color-primary);
+  }
+}
+.section__profile {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+}
+.status__container {
+  display: grid;
+  grid-template-columns: max-content max-content;
+}
