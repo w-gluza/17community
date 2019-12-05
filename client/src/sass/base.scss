@@ -11,7 +11,7 @@
   border: none;
   text-decoration: none;
   background-color: transparent;
-  font-family: "Lato", Helvetica, Arial, Verdana, Tahoma;
+  font-family: 'Lato', Helvetica, Arial, Verdana, Tahoma;
 }
 
 button,
@@ -43,26 +43,28 @@ img {
 h1,
 h2 {
   font-size: var(--font-size-large);
-  font-weight: var(--font-weight-regular);
+  font-weight: var(--font-weight-bold);
   line-height: var(--line-height-regular);
-  letter-spacing: var(--letter-spacing-regular);
+  letter-spacing: var(--letter-spacing-small);
   color: var(--color-black);
+  text-transform: uppercase;
 }
 
 h3 {
   font-size: var(--font-size-large);
-  font-weight: var(--font-weight-regular);
+  font-weight: var(--font-weight-bold);
   line-height: var(--line-height-regular);
-  letter-spacing: var(--letter-spacing-regular);
-  color: var(--color-primary);
+  letter-spacing: var(--letter-spacing-small);
+  color: var(--color-black);
   padding: var(--text-padding-regular);
+  text-transform: uppercase;
 }
 
 h4 {
   font-size: var(--font-size-regular);
   font-weight: var(--font-weight-regular);
   line-height: var(--line-height-regular);
-  letter-spacing: var(--letter-spacing-regular);
+  letter-spacing: var(--letter-spacing-small);
   color: var(--color-black);
 }
 button,
@@ -70,7 +72,7 @@ p {
   font-size: var(--font-size-regular);
   font-weight: var(--font-weight-light);
   line-height: var(--line-height-regular);
-  letter-spacing: var(--letter-spacing-regular);
+  letter-spacing: var(--letter-spacing-small);
   color: var(--color-black);
 }
 

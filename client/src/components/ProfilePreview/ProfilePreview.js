@@ -18,10 +18,14 @@ const ProfilePreview = ({
         <h3>{name}</h3>
         <p>{status}</p>
         <p>{location && <span>{location}</span>}</p>
+
         <Link to={`/profile/${_id}`}>See Profile</Link>
+
         <ul className='tags'>
           {interests.slice(0, 4).map((interests, index) => (
-            <li key={index}>{interests}</li>
+            <li key={index} className='tag'>
+              {interests}
+            </li>
           ))}
         </ul>
       </div>
