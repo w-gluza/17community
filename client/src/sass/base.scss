@@ -11,7 +11,7 @@
   border: none;
   text-decoration: none;
   background-color: transparent;
-  font-family: 'Lato', Helvetica, Arial, Verdana, Tahoma;
+  font-family: "Poppins", Helvetica, Arial, Verdana, Tahoma;
 }
 
 button,
@@ -94,4 +94,15 @@ p {
 
 .main {
   grid-column: 2/3;
+}
+
+.tags {
+  display: flex;
+}
+
+.tag {
+  margin: 0.2rem;
+  padding: 0.6rem 2rem;
+  border-radius: 2rem;
+  background-color: var(--color-light);
 }

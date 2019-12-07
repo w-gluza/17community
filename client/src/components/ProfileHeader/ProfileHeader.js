@@ -19,12 +19,12 @@ const ProfileHeader = ({
         <img className="profile__img" src={avatar} alt="avatar" />
         <article>
           <h2>{name}</h2>
+
           <div className="status__container">
             <p>{status}&nbsp;</p>
             {location && <p> | {location}</p>}
           </div>
-          {/* checking if not requried fields exist
-      we do not want empty <p></p> */}
+
           <div className="icons__container">
             {facebook && (
               <a
@@ -57,21 +57,29 @@ const ProfileHeader = ({
               </a>
             )}
           </div>
+
           {website && (
             <a href={website} target="_blank" rel="noopener noreferrer">
               {website}
             </a>
           )}
-          {bio && (
-            <section>
-              <article>{bio}</article>
+          <section>
+            {bio && (
               <article>
-                {interests.map((interest, index) => (
-                  <p key={index}>{interest}</p>
-                ))}
+                <p>{bio}</p>
               </article>
-            </section>
-          )}
+            )}
+
+            {interests && (
+              <ul className="tags">
+                {interests.map((interest, index) => (
+                  <li className="tag" key={index}>
+                    {interest}
+                  </li>
+                ))}
+              </ul>
+            )}
+          </section>
         </article>
       </section>
     </>
