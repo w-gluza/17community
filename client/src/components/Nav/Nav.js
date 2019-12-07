@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import burgerIcon from '../../assets/icons/burger.svg';
+import closeIcon from '../../assets/icons/close.svg';
 
 // Redux
 import { connect } from 'react-redux';
@@ -64,7 +65,11 @@ const Nav = ({ auth: { isAuthenticated, loading }, logout }) => {
         </h1>
         {!loading && <>{isAuthenticated ? authLinks : guestLinks}</>}
         <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
-          <img src={burgerIcon} alt='burger menu' className='burger-icon' />
+          {isMenuOpen ? (
+            <img src={closeIcon} alt='close menu' className='menu-icon' />
+          ) : (
+            <img src={burgerIcon} alt='burger menu' className='menu-icon' />
+          )}
         </button>
       </nav>
     </>
