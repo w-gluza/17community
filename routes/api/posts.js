@@ -30,7 +30,7 @@ router.post(
 
       const newPost = new Post({
         text: request.body.text,
-        img: request.body.text,
+        img: request.body.img,
         name: user.name,
         avatar: user.avatar,
         user: request.user.id

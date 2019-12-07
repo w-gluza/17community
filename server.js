@@ -1,5 +1,5 @@
-const express = require('express');
-const connectDB = require('./config/db');
+const express = require("express");
+const connectDB = require("./config/db");
 
 // Initialize app with Express
 const app = express();
@@ -8,16 +8,16 @@ const app = express();
 connectDB();
 
 // Initialize Middleware
-app.use(express.json({ extended: false }));
+app.use(express.json({ extended: false, limit: "50mb" }));
 
 // Get request and send data to the browser
-app.get('/', (request, response) => response.send('API running'));
+app.get("/", (request, response) => response.send("API running"));
 
 // Define routes
-app.use('/api/users', require('./routes/api/users'));
-app.use('/api/auth', require('./routes/api/auth'));
-app.use('/api/profile', require('./routes/api/profile'));
-app.use('/api/posts', require('./routes/api/posts'));
+app.use("/api/users", require("./routes/api/users"));
+app.use("/api/auth", require("./routes/api/auth"));
+app.use("/api/profile", require("./routes/api/profile"));
+app.use("/api/posts", require("./routes/api/posts"));
 
 // Define the port for deploy on Heroku || local.host
 const PORT = process.env.PORT || 5000;
