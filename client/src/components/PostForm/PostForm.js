@@ -30,7 +30,6 @@ const PostForm = ({ addPost }) => {
     }
 
     Main();
-    console.log(formData);
   };
 
   return (
