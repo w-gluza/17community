@@ -1,0 +1,11 @@
+.post__article {
+  display: grid;
+  width: 100%;
+  justify-content: center;
+}
+.post__form {
+  display: grid;
+  max-width: 300px;
+  min-height: 500px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}

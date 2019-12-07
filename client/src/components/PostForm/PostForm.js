@@ -2,6 +2,12 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { addPost } from "../../actions/post";
+import theme from "../../theme";
+import { ThemeProvider } from "@material-ui/styles";
+import Button from "@material-ui/core/Button";
+import TextField from "@material-ui/core/TextField";
+
+import CloudUploadIcon from "@material-ui/icons/CloudUpload";
 
 const PostForm = ({ addPost }) => {
   const [formData, setFormData] = useState({
@@ -33,16 +39,17 @@ const PostForm = ({ addPost }) => {
   };
 
   return (
-    <article>
+    <article className="post__article">
       <p>Please write your post below</p>
-      <form onSubmit={e => onSubmit(e)}>
-        <input
-          accept="image/*"
-          id="inputGroupFile01"
-          type="file"
-          name="img"
-          value={img}
-          onChange={e => onChange(e)}
+      <form onSubmit={e => onSubmit(e)} className="post__form">
+        <TextField
+          label="Post Title doesn't work"
+          className="text-field"
+          name="postTitle"
+          // onChange={handleChange("name")}
+          margin="normal"
+          variant="outlined"
+          required
         />
         <textarea
           name="text"
@@ -50,8 +57,36 @@ const PostForm = ({ addPost }) => {
           placeholder="Add something cool"
           onChange={e => onChange(e)}
           required
-        ></textarea>
-        <button type="submit">Submit</button>
+        />
+        <input
+          accept="image/*"
+          style={{ display: "none" }}
+          id="postImg"
+          multiple
+          type="file"
+          value={img}
+          onChange={e => onChange(e)}
+        />
+        <label htmlFor="postImg">
+          <Button
+            component="span"
+            variant="contained"
+            color="default"
+            startIcon={<CloudUploadIcon />}
+          >
+            Upload
+          </Button>
+        </label>
+
+        <Button
+          type="submit"
+          className="button"
+          variant="contained"
+          color="primary"
+          size="large"
+        >
+          Submit
+        </Button>
       </form>
     </article>
   );
