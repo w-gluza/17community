@@ -21,6 +21,7 @@ const Authentication = () => {
             <Link to='/'>
               <h2>17 Community</h2>
             </Link>
+            <p>Working together to build a better future for everyone.</p>
           </figcaption>
           <img src={illustration} alt='community login' />
         </figure>

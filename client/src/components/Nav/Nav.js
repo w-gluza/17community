@@ -1,50 +1,35 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import burgerIcon from '../../assets/icons/burger.svg';
 
 // Redux
 import { connect } from 'react-redux';
 import { logout } from '../../actions/auth';
 
-const Nav = ({
-  auth: { isAuthenticated, loading },
-  logout,
-  isMenuOpen,
-  onToggleMenu,
-}) => {
-  // const toggleMenuClasses = isMenuOpen ? 'open' : 'close';
-  const [isSmallScreen, setSmallScreen] = useState(true);
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia('(min-width: 700px)');
-    mediaQuery.addListener(handleMediaQueryChange);
-    handleMediaQueryChange(mediaQuery);
-    return () => {
-      mediaQuery.removeListener(handleMediaQueryChange);
-    };
-  }, []);
-
-  const handleMediaQueryChange = mediaQuery => {
-    if (mediaQuery.matches) {
-      setSmallScreen(false);
-    } else {
-      setSmallScreen(true);
-    }
-  };
-
+const Nav = ({ auth: { isAuthenticated, loading }, logout }) => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const authLinks = (
-    <ul>
+    <ul className={isMenuOpen ? 'show' : 'hide'}>
       <li>
-        <Link to='/dashboard'>Dashboard</Link>
+        <Link to='/dashboard' onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          Dashboard
+        </Link>
       </li>
       <li>
-        <Link to='/profiles'>Members</Link>
+        <Link to='/profiles' onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          Members
+        </Link>
       </li>
       <li>
-        <Link to='/milestones'>Milestones</Link>
+        <Link to='/milestones' onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          Milestones
+        </Link>
       </li>
       <li>
-        <Link to='/posts'>Posts</Link>
+        <Link to='/posts' onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          Posts
+        </Link>
       </li>
       <li onClick={logout} to='!#'>
         <span>Log Out</span>
@@ -53,25 +38,34 @@ const Nav = ({
   );
 
   const guestLinks = (
-    <ul>
+    <ul className={isMenuOpen ? 'show' : 'hide'}>
       <li>
-        <Link to='/profiles'>Members</Link>
+        <Link to='/profiles' onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          Members
+        </Link>
       </li>
       <li>
-        <Link to='/authentication'>Sign Up</Link>
+        <Link to='/authentication' onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          Sign Up
+        </Link>
       </li>
       <li>
-        <Link to='/authentication'>Log In</Link>
+        <Link to='/authentication' onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          Log In
+        </Link>
       </li>
     </ul>
   );
   return (
     <>
-      <nav className={isSmallScreen ? 'nav' : 'nav nav-lg'}>
+      <nav className='nav'>
         <h1>
           <Link to='/'>17 Community</Link>
         </h1>
         {!loading && <>{isAuthenticated ? authLinks : guestLinks}</>}
+        <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          <img src={burgerIcon} alt='burger menu' className='burger-icon' />
+        </button>
       </nav>
     </>
   );

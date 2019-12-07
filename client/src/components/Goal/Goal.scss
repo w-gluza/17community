@@ -1,13 +1,24 @@
 .goal {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
+  display: flex;
+  flex-direction: column;
+  @include respond(tab-port) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+  }
 }
 
 .goal-description {
-  padding: 0 8rem 0 0;
+  padding: 0;
+  @include respond(tab-port) {
+    padding: 0 8rem 0 0;
+  }
 }
 
 .goal-img {
-  padding: 2rem;
+  max-height: 35vh;
+  @include respond(tab-port) {
+    padding: 2rem;
+    max-height: 100%;
+  }
 }

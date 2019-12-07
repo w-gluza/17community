@@ -10,7 +10,9 @@
 .auth__aside {
   display: none;
   @include respond(tab-port) {
-    display: grid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 .auth__section {
@@ -22,7 +24,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  padding: 0rem 8rem;
+  padding: 4rem 8rem;
+  .heading {
+    color: var(--color-white);
+    padding: 0;
+  }
 }
 .auth__form {
   width: 100%;
@@ -52,4 +58,12 @@
 
 .button__group {
   width: 300px;
+}
+
+.figure {
+  padding: 3rem;
+}
+
+.figcaption {
+  padding: 1rem 0;
 }

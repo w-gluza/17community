@@ -3,6 +3,13 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  height: calc(100vh - var(--nav-height));
+  @include respond(tab-port) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 .btn-group button {

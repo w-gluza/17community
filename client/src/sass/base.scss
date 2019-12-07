@@ -46,6 +46,7 @@ h2 {
   font-weight: var(--font-weight-bold);
   line-height: var(--line-height-regular);
   letter-spacing: var(--letter-spacing-small);
+  padding: var(--text-padding-regular);
   color: var(--color-black);
   text-transform: uppercase;
 }
@@ -84,16 +85,24 @@ p {
 /* Grid -------------------------------- */
 
 .page-container {
-  display: grid;
-  grid-template-columns: 1fr 4fr;
+  display: flex;
+  flex-direction: column;
+  @include respond(tab-port) {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+  }
 }
 
 .nav {
-  grid-column: 1/2;
+  @include respond(tab-port) {
+    grid-column: 1/2;
+  }
 }
 
 .main {
-  grid-column: 2/3;
+  @include respond(tab-port) {
+    grid-column: 2/3;
+  }
 }
 
 .tags {

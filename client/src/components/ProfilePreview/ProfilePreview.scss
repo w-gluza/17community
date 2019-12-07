@@ -1,9 +1,13 @@
 .member-card {
   display: flex;
-  align-items: flex-start;
+  flex-direction: column;
   background-color: var(--color-white);
   border-radius: 2rem;
   margin: 2rem 0;
+  @include respond(tab-port) {
+    display: flex;
+    align-items: flex-start;
+  }
 }
 
 .avatar {
