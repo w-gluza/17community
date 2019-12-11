@@ -1,0 +1,29 @@
+.alert {
+  position: absolute;
+  right: -10vh;
+  transition: 0.5s;
+  background: #eb6475;
+  animation: mymove 6s;
+  top: 1vh;
+  padding: 1vw;
+  border-radius: 10px;
+  z-index: 9999;
+  color: white;
+}
+
+@keyframes mymove {
+  0% {
+    right: -100%;
+  }
+
+  30% {
+    right: 5vw;
+  }
+  80% {
+    right: 5vw;
+  }
+
+  100% {
+    right: -100%;
+  }
+}
