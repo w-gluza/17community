@@ -43,7 +43,7 @@ const PostForm = ({ addPost }) => {
       <article className="post__article">
         <p>Please write your post below</p>
         <form onSubmit={e => onSubmit(e)} className="post__form">
-          <TextField
+          {/* <TextField
             label="Post Title doesn't work"
             className="form__field"
             name="postTitle"
@@ -51,7 +51,7 @@ const PostForm = ({ addPost }) => {
             margin="normal"
             variant="outlined"
             required
-          />
+          /> */}
           <TextField
             label="Post content"
             variant="outlined"
@@ -63,6 +63,7 @@ const PostForm = ({ addPost }) => {
             required
           />
           <input
+            name="img"
             accept="image/*"
             style={{ display: "none" }}
             id="postImg"
