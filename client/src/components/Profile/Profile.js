@@ -26,6 +26,8 @@ const Profile = ({
         <Loader />
       ) : (
         <section className="section">
+          <ProfileHeader profile={profile} />
+
           {auth.isAuthenticated &&
             auth.loading === false &&
             auth.user._id === profile.user._id && (
@@ -33,10 +35,6 @@ const Profile = ({
                 <Link to="/edit-profile">Edit Profile</Link>
               </Button>
             )}
-
-          <div>
-            <ProfileHeader profile={profile} />
-          </div>
           <Button variant="outlined" color="primary">
             <Link to="/profiles">Back to profiles</Link>
           </Button>

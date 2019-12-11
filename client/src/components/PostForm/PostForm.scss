@@ -1,11 +1,17 @@
 .post__article {
   display: grid;
-  width: 100%;
   justify-content: center;
 }
 .post__form {
-  display: grid;
-  max-width: 300px;
+  background: var(--color-secondary);
+  // display: grid;
+  width: 400px;
   min-height: 500px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  border-radius: 1.5rem;
+  padding: 5rem;
+}
+
+.form__field {
+  width: 100%;
 }
