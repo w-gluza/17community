@@ -18,7 +18,6 @@ const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
       ) : (
         <>
           <h2>Members</h2>
-          <p>Share your story</p>
           <article>
             {profiles.length > 0 ? (
               profiles.map(profile => (

@@ -32,8 +32,19 @@ const Dashboard = ({
       </h4>
       {profile !== null ? (
         <>
-          <DashboardActions />
-          <button onClick={() => deleteAccount()}>Delete Account</button>
+          <img src={newUserImage} alt='new user' />
+          <div className='btn-group'>
+            <Button size='large' variant='outlined' color='primary'>
+              <DashboardActions />
+            </Button>
+            <Button
+              size='large'
+              variant='outlined'
+              color='primary'
+              onClick={() => deleteAccount()}>
+              Delete Account
+            </Button>
+          </div>
         </>
       ) : (
         <>

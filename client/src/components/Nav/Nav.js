@@ -8,10 +8,12 @@ import closeIcon from '../../assets/icons/close.svg';
 import { connect } from 'react-redux';
 import { logout } from '../../actions/auth';
 
+const width = window.innerWidth;
+
 const Nav = ({ auth: { isAuthenticated, loading }, logout }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const authLinks = (
-    <ul className={isMenuOpen ? 'show' : 'hide'}>
+    <ul className={isMenuOpen && width < 600 ? 'show' : 'hide'}>
       <li>
         <Link to='/dashboard' onClick={() => setIsMenuOpen(!isMenuOpen)}>
           Dashboard
@@ -39,7 +41,7 @@ const Nav = ({ auth: { isAuthenticated, loading }, logout }) => {
   );
 
   const guestLinks = (
-    <ul className={isMenuOpen ? 'show' : 'hide'}>
+    <ul className={isMenuOpen && width < 600 ? 'show' : 'hide'}>
       <li>
         <Link to='/profiles' onClick={() => setIsMenuOpen(!isMenuOpen)}>
           Members
