@@ -29,10 +29,11 @@ const PostForm = ({ addPost }) => {
         reader.onerror = error => reject(error);
       });
     async function Main() {
-      const file = e.target.img.files[0];
-      console.log(await toBase64(file));
-      formData.img = await toBase64(file);
-      await addPost(formData);
+      console.log(e.target.fileimg);
+      // const file = e.target.img.files[0];
+      // console.log(await toBase64(file));
+      // formData.img = await toBase64(file);
+      // await addPost(formData);
     }
 
     Main();
@@ -60,6 +61,7 @@ const PostForm = ({ addPost }) => {
         />
         <input
           accept="image/*"
+          name="fileimg"
           style={{ display: "none" }}
           id="postImg"
           multiple
