@@ -29,11 +29,9 @@ const PostForm = ({ addPost }) => {
         reader.onerror = error => reject(error);
       });
     async function Main() {
-      console.log(e.target.fileimg);
-      // const file = e.target.img.files[0];
-      // console.log(await toBase64(file));
-      // formData.img = await toBase64(file);
-      // await addPost(formData);
+      const file = e.target.img.files[0];
+      formData.img = await toBase64(file);
+      await addPost(formData);
     }
 
     Main();
