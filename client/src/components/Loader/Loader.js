@@ -1,15 +1,11 @@
-import React from "react";
-import spinner from "../../assets/illustrations/spinner.gif";
+import React from 'react';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 function Loader() {
   return (
-    <>
-      <img
-        src={spinner}
-        style={{ width: "150px", height: "auto" }}
-        alt="Loading.."
-      />
-    </>
+    <figure className='loader'>
+      <CircularProgress />
+    </figure>
   );
 }
 

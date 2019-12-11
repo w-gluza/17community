@@ -27,7 +27,7 @@ if (localStorage.token) {
   setAuthToken(localStorage.token);
 }
 
-const App = () => {
+const App = ({ content }) => {
   // Navigation Toggle
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 

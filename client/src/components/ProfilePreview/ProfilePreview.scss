@@ -1,11 +1,13 @@
 .member-card {
   display: flex;
+  width: 100%;
   background-color: var(--color-white);
   border-radius: 2rem;
   margin: 2rem 0;
   @include respond(tab-port) {
     display: flex;
     align-items: flex-start;
+    justify-content: stretch;
   }
 }
 
@@ -13,4 +15,9 @@
   max-width: 100px;
   margin: 2rem;
   border-radius: 50%;
+}
+
+.see-more {
+  align-self: flex-end;
+  justify-self: flex-end;
 }
