@@ -1,4 +1,20 @@
 .post-item {
-  display: flex;
-  background-color: var(--color-grey);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  // background-color: var(--color-grey);
 }
+.media {
+  height: 200px;
+  padding-top: "56.25%"; // 16:9
+}
+.postitem__heading {
+  display: grid;
+  grid-template-columns: max-content max-content;
+  justify-content: space-between;
+  align-items: center;
+}
+// .avatar {
+//   width: 100px;
+//   border-radius: 50%;
+// }

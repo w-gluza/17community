@@ -78,6 +78,7 @@ const PostForm = ({ addPost }) => {
               type='file'
               value={img}
               onChange={e => onChange(e)}
+              required
             />
             <label htmlFor='postImg'>
               <Button
