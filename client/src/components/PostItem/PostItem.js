@@ -17,9 +17,7 @@ import {
   CardActions
 } from "@material-ui/core";
 import IconButton from "@material-ui/core/IconButton";
-import FavoriteBorderOutlinedIcon from "@material-ui/icons/FavoriteBorderOutlined";
 import FavoriteIcon from "@material-ui/icons/Favorite";
-// import ShareIcon from "@material-ui/icons/Share";
 import CommentOutlinedIcon from "@material-ui/icons/CommentOutlined";
 import DeleteOutlineOutlinedIcon from "@material-ui/icons/DeleteOutlineOutlined";
 import Button from "@material-ui/core/Button";
