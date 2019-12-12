@@ -29,6 +29,7 @@ router.post(
       const user = await User.findById(request.user.id).select("-password");
 
       const newPost = new Post({
+        title: request.body.title,
         text: request.body.text,
         img: request.body.img,
         name: user.name,
