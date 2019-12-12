@@ -68,6 +68,15 @@ h4 {
   letter-spacing: var(--letter-spacing-small);
   color: var(--color-primary);
 }
+
+h5 {
+  font-size: var(--font-size-large);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-regular);
+  letter-spacing: var(--letter-spacing-small);
+  color: var(--color-primary);
+}
+
 button,
 p {
   font-size: var(--font-size-regular);
@@ -123,4 +132,9 @@ p {
   display: flex;
   justify-content: center;
   margin-top: 40vh;
+}
+
+.section__posts {
+  display: grid;
+  justify-content: center;
 }

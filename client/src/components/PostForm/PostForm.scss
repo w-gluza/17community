@@ -1,20 +1,15 @@
 .post__article {
-  display: grid;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
+  padding: 2rem 0rem 5rem 0rem;
 }
 .post__card {
   display: grid;
-  max-width: 60vw;
+  max-width: 50vw;
   grid-template-columns: 2fr 3fr;
   padding: 3rem 4rem;
   background-color: #fefefe;
   gap: 4rem;
 }
-// .post_img {
-//   width: 50%;
-// }
+
 .post__form {
   display: grid;
   grid-template-columns: 1fr;

@@ -58,6 +58,9 @@ const PostForm = ({ addPost }) => {
               onChange={e => onChange(e)}
               margin="normal"
               variant="outlined"
+              inputProps={{
+                maxLength: 50
+              }}
               required
             />
             <TextField
@@ -68,6 +71,9 @@ const PostForm = ({ addPost }) => {
               placeholder="Add something cool"
               onChange={e => onChange(e)}
               required
+              inputProps={{
+                maxLength: 260
+              }}
             />
             <input
               name="img"

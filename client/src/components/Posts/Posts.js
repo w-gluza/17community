@@ -15,13 +15,11 @@ const Posts = ({ getPosts, post: { posts, loading } }) => {
   return loading ? (
     <Loader />
   ) : (
-    <section className="section">
+    <section className="section section__posts">
       <PostForm />
-      <section>
-        {posts.map(post => (
-          <PostItem key={post._id} post={post} />
-        ))}
-      </section>
+      {posts.map(post => (
+        <PostItem key={post._id} post={post} />
+      ))}
     </section>
   );
 };

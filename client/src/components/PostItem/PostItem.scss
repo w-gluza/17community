@@ -1,11 +1,9 @@
 .post-item {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  // background-color: var(--color-grey);
+  margin-bottom: 4rem;
+  width: 50vw;
 }
 .media {
-  height: 200px;
+  height: 280px;
   padding-top: "56.25%"; // 16:9
 }
 .postitem__heading {
@@ -14,7 +12,9 @@
   justify-content: space-between;
   align-items: center;
 }
-// .avatar {
-//   width: 100px;
-//   border-radius: 50%;
-// }
+.post__link {
+  color: var(--color-white);
+}
+.post__likes-counter {
+  color: var(--color-accent);
+}
