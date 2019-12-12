@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Icon from '../../assets/icons/index';
 import Card from '@material-ui/core/Card';
-import Link from '@material-ui/core/Link';
 
 const ProfileHeader = ({
   profile: {
@@ -20,15 +19,15 @@ const ProfileHeader = ({
       <Card className='section__profile'>
         <img className='profile__img' src={avatar} alt='avatar' />
         <article className='details'>
-          <h2>{name}</h2>
+          <h2 className='name'>{name}</h2>
           {website && (
-            <Link
+            <a
+              className='website-link'
               href={website}
               target='_blank'
-              rel='noopener noreferrer'
-              color='primary'>
+              rel='noopener noreferrer'>
               {website}
-            </Link>
+            </a>
           )}
           <div className='status__container'>
             <p>{status}&nbsp;</p>
