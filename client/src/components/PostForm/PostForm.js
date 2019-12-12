@@ -11,10 +11,12 @@ import CloudUploadIcon from "@material-ui/icons/CloudUpload";
 
 const PostForm = ({ addPost }) => {
   const [formData, setFormData] = useState({
+    title: "",
     text: "",
     img: ""
   });
-  const { text, img } = formData;
+  const { title, text, img } = formData;
+  console.log(formData);
 
   const onChange = e =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -42,15 +44,17 @@ const PostForm = ({ addPost }) => {
       <article className="post__article">
         <p>Please write your post below</p>
         <form onSubmit={e => onSubmit(e)} className="post__form">
-          {/* <TextField
-            label="Post Title doesn't work"
+          <TextField
+            label="Post Title"
             className="form__field"
-            name="postTitle"
-            // onChange={handleChange("name")}
+            name="title"
+            value={title}
+            placeholder="Title"
+            onChange={e => onChange(e)}
             margin="normal"
             variant="outlined"
             required
-          /> */}
+          />
           <TextField
             label="Post content"
             variant="outlined"
