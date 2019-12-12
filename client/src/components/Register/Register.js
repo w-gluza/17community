@@ -1,23 +1,24 @@
-import React, { useState } from 'react';
-import { Redirect } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import theme from '../../theme';
-import { ThemeProvider } from '@material-ui/styles';
+import React, { useState } from "react";
+import { Redirect } from "react-router-dom";
+import PropTypes from "prop-types";
+
 // Redux
-import { connect } from 'react-redux';
-import { setAlert } from '../../actions/alert';
-import { register } from '../../actions/auth';
+import { connect } from "react-redux";
+import { setAlert } from "../../actions/alert";
+import { register } from "../../actions/auth";
 
 // Material-UI Components Imports
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
+import dark from "../../themes/dark";
+import { ThemeProvider } from "@material-ui/styles";
+import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
 
 const Register = ({ setAlert, register, isAuthenticated }) => {
   const [values, setValues] = useState({
-    name: '',
-    email: '',
-    password: '',
-    passwordCheck: '',
+    name: "",
+    email: "",
+    password: "",
+    passwordCheck: ""
   });
 
   const { name, email, password, passwordCheck } = values;
@@ -31,76 +32,78 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
     e.preventDefault();
     // Checking if both passwords match
     if (password !== passwordCheck) {
-      setAlert('Passwords do not match', 'danger');
+      setAlert("Passwords do not match", "danger");
     } else {
       register({ name, email, password });
     }
   };
 
   if (isAuthenticated) {
-    return <Redirect to='/dashboard' />;
+    return <Redirect to="/dashboard" />;
   }
 
   return (
-    <ThemeProvider theme={theme}>
-      <article className='auth__article'>
-        <h3 className='heading'>Sign Up</h3>
+    <ThemeProvider theme={dark}>
+      <article className="auth__article">
+        <h3 className="heading">Sign Up</h3>
         <form
-          className='auth__form'
+          className="auth__form"
           onSubmit={e => onSubmit(e)}
           noValidate
-          autoComplete='off'>
+          autoComplete="off"
+        >
           <TextField
-            id='outlined-name'
-            label='Name'
-            className='text-field'
-            name='name'
-            onChange={handleChange('name')}
-            margin='normal'
-            variant='outlined'
+            id="outlined-name"
+            label="Name"
+            className="text-field"
+            name="name"
+            onChange={handleChange("name")}
+            margin="normal"
+            variant="outlined"
             required
           />
           <TextField
-            id='outlined-email-input'
-            label='Email'
-            className='text-field'
-            type='email'
-            name='email'
-            onChange={handleChange('email')}
-            autoComplete='email'
-            margin='normal'
-            variant='outlined'
+            id="outlined-email-input"
+            label="Email"
+            className="text-field"
+            type="email"
+            name="email"
+            onChange={handleChange("email")}
+            autoComplete="email"
+            margin="normal"
+            variant="outlined"
             required
           />
           <TextField
-            id='outlined-password-input'
-            label='Password'
-            className='text-field'
-            type='password'
-            name='password'
-            onChange={handleChange('password')}
-            margin='normal'
-            variant='outlined'
+            id="outlined-password-input"
+            label="Password"
+            className="text-field"
+            type="password"
+            name="password"
+            onChange={handleChange("password")}
+            margin="normal"
+            variant="outlined"
             required
           />
           <TextField
-            id='outlined-password-input-check'
-            label='Repeat Password'
-            className='text-field'
-            type='password'
-            name='passwordCheck'
-            onChange={handleChange('passwordCheck')}
-            margin='normal'
-            variant='outlined'
+            id="outlined-password-input-check"
+            label="Repeat Password"
+            className="text-field"
+            type="password"
+            name="passwordCheck"
+            onChange={handleChange("passwordCheck")}
+            margin="normal"
+            variant="outlined"
             required
           />
           <Button
-            type='submit'
-            className='button'
-            variant='contained'
-            color='primary'
-            size='large'
-            style={{ marginTop: '1rem' }}>
+            type="submit"
+            className="button"
+            variant="contained"
+            color="primary"
+            size="large"
+            style={{ marginTop: "1rem" }}
+          >
             Sign Up
           </Button>
         </form>
@@ -112,11 +115,11 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
 Register.propTypes = {
   setAlert: PropTypes.func.isRequired,
   register: PropTypes.func.isRequired,
-  isAuthenticated: PropTypes.bool,
+  isAuthenticated: PropTypes.bool
 };
 
 const mapStateToProps = state => ({
-  isAuthenticated: state.auth.isAuthenticated,
+  isAuthenticated: state.auth.isAuthenticated
 });
 
 export default connect(mapStateToProps, { setAlert, register })(Register);

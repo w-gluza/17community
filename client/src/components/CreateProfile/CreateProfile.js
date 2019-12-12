@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { Link, withRouter, Redirect } from "react-router-dom";
+import { withRouter, Redirect } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { createProfile, getCurrentProfile } from "../../actions/profile";
+import { TextField } from "@material-ui/core";
 
 // Material-UI Components Imports
+import light from "../../themes/light";
+import { ThemeProvider } from "@material-ui/styles";
+import Card from "@material-ui/core/Card";
 import Button from "@material-ui/core/Button";
 
 const CreateProfile = ({
@@ -46,70 +50,87 @@ const CreateProfile = ({
   return loading && profile === null ? (
     <Redirect to="/dashboard" />
   ) : (
-    <>
-      <form onSubmit={e => onSubmit(e)}>
-        <input
-          type="text"
-          placeholder="website"
-          name="website"
-          value={website}
-          onChange={e => onChange(e)}
-        ></input>
-        <input
-          type="text"
-          placeholder="location"
-          name="location"
-          value={location}
-          onChange={e => onChange(e)}
-        />
-        <input
-          type="text"
-          placeholder="your profesion"
-          name="status"
-          value={status}
-          onChange={e => onChange(e)}
-        />
-        <input
-          type="text"
-          placeholder="interests"
-          name="interests"
-          value={interests}
-          onChange={e => onChange(e)}
-        />
-        <input
-          type="text"
-          placeholder="bio"
-          name="bio"
-          value={bio}
-          onChange={e => onChange(e)}
-        />
-        <input
-          type="text"
-          placeholder="instagram"
-          name="instagram"
-          value={instagram}
-          onChange={e => onChange(e)}
-        />
-        <input
-          type="text"
-          placeholder="facebook"
-          name="facebook"
-          value={facebook}
-          onChange={e => onChange(e)}
-        />
-        <input
-          type="text"
-          placeholder="linkedin"
-          name="linkedin"
-          value={linkedin}
-          onChange={e => onChange(e)}
-        />
-        <Button type="submit" variant="outlined" color="primary">
-          Submit
-        </Button>
-        <Link to="./dashboard">Go to Dash</Link>
-      </form>
-    </>
+    <ThemeProvider theme={light}>
+      <section className="create__profile-section">
+        <article>
+          <Card className="create__profile-card">
+            <figure>
+              <div className="create__profile-avatar"></div>
+            </figure>
+            <form onSubmit={e => onSubmit(e)} className="create__profile-form">
+              <h4>Tell us more about you!</h4>
+              <TextField
+                type="text"
+                placeholder="website"
+                name="website"
+                value={website}
+                variant="outlined"
+                onChange={e => onChange(e)}
+              />
+              <TextField
+                type="text"
+                placeholder="location"
+                name="location"
+                value={location}
+                variant="outlined"
+                onChange={e => onChange(e)}
+              />
+              <TextField
+                type="text"
+                placeholder="your profesion"
+                name="status"
+                value={status}
+                variant="outlined"
+                onChange={e => onChange(e)}
+              />
+              <TextField
+                type="text"
+                placeholder="interests"
+                name="interests"
+                value={interests}
+                variant="outlined"
+                onChange={e => onChange(e)}
+              />
+              <TextField
+                type="text"
+                placeholder="bio"
+                name="bio"
+                value={bio}
+                variant="outlined"
+                onChange={e => onChange(e)}
+              />
+              <TextField
+                type="text"
+                placeholder="instagram"
+                name="instagram"
+                value={instagram}
+                variant="outlined"
+                onChange={e => onChange(e)}
+              />
+              <TextField
+                type="text"
+                placeholder="facebook"
+                name="facebook"
+                value={facebook}
+                variant="outlined"
+                onChange={e => onChange(e)}
+              />
+              <TextField
+                type="text"
+                placeholder="linkedin"
+                name="linkedin"
+                value={linkedin}
+                variant="outlined"
+                onChange={e => onChange(e)}
+              />
+              <Button type="submit" variant="contained" color="primary">
+                Submit
+              </Button>
+            </form>
+          </Card>
+        </article>
+      </section>
+    </ThemeProvider>
   );
 };
 
