@@ -27,16 +27,18 @@ const Profile = ({
       ) : (
         <>
           <ProfileHeader profile={profile} />
-          <Button variant='outlined' color='primary'>
-            <Link to='/profiles'>Back to profiles</Link>
-          </Button>
-          {auth.isAuthenticated &&
-            auth.loading === false &&
-            auth.user._id === profile.user._id && (
-              <Button variant='outlined' color='primary'>
-                <Link to='/edit-profile'>Edit Profile</Link>
-              </Button>
-            )}
+          <div className='btn-group'>
+            <Button variant='outlined' color='primary'>
+              <Link to='/profiles'>Back to profiles</Link>
+            </Button>
+            {auth.isAuthenticated &&
+              auth.loading === false &&
+              auth.user._id === profile.user._id && (
+                <Button variant='outlined' color='primary'>
+                  <Link to='/edit-profile'>Edit Profile</Link>
+                </Button>
+              )}
+          </div>
         </>
       )}
     </section>

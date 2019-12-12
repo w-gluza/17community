@@ -89,8 +89,8 @@ function Todo() {
   return (
     <div className='milestones-container'>
       <div className='header'>
-        <h3>Milestones</h3>
-        <h3>Completed: {tasksCompleted}</h3>
+        <h4>Milestones</h4>
+        <h4>Completed: {tasksCompleted}</h4>
       </div>
 
       <div className='create-task'>
