@@ -16,8 +16,7 @@ const Posts = ({ getPosts, post: { posts, loading } }) => {
     <Loader />
   ) : (
     <section className='section'>
-      <h2>Posts</h2>
-      <p>Welcome!</p>
+      <h3>Posts</h3>
       <PostForm />
       <section>
         {posts.map(post => (

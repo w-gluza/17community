@@ -30,7 +30,6 @@ const PostForm = ({ addPost }) => {
       });
     async function Main() {
       const file = e.target.img.files[0];
-      console.log(await toBase64(file));
       formData.img = await toBase64(file);
       await addPost(formData);
     }
@@ -82,7 +81,6 @@ const PostForm = ({ addPost }) => {
               Upload
             </Button>
           </label>
-
           <Button
             type="submit"
             className="button"
