@@ -1,10 +1,12 @@
 .dashboard {
+  background-color: var(--color-background-light);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   height: calc(100vh - var(--nav-height));
   @include respond(tab-port) {
+    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
