@@ -1,5 +1,9 @@
 .member-card {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   width: 100%;
   background-color: var(--color-white);
   margin: 2rem 0;
@@ -7,6 +11,7 @@
     display: grid;
     grid-template-columns: 1fr 3fr 2fr;
     align-items: start;
+    text-align: left;
   }
 }
 .avatar {
@@ -16,8 +21,13 @@
 }
 
 .status__container {
-  display: grid;
-  grid-template-columns: max-content max-content;
+  display: flex;
+  justify-content: center;
+  @include respond(tab-port) {
+    display: grid;
+    grid-template-columns: max-content max-content;
+    justify-content: start;
+  }
 }
 
 .tags {

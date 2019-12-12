@@ -2,15 +2,26 @@
   display: grid;
   align-items: center;
   justify-content: center;
-  padding: 2rem;
+  padding: 2rem 0;
+  @include respond(tab-port) {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
 }
 .post__card {
-  display: grid;
-  max-width: 60vw;
-  grid-template-columns: 2fr 3fr;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 3rem 4rem;
   background-color: #fefefe;
-  gap: 4rem;
+  @include respond(tab-port) {
+    display: grid;
+    max-width: 60vw;
+    grid-template-columns: 2fr 3fr;
+    gap: 4rem;
+  }
 }
 // .post_img {
 //   width: 50%;

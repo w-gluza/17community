@@ -17,11 +17,17 @@
   }
 }
 .section__profile {
-  display: grid;
-  grid-template-columns: 1fr 4fr;
-  gap: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
   background-color: var(--color-background);
   padding: 3rem;
+  @include respond(tab-port) {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    gap: 4rem;
+  }
 }
 .status__container {
   display: grid;
