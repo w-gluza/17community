@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { addPost } from "../../actions/post";
-import postImg from "../../assets/illustrations/00_community.svg";
+import postImg from "../../assets/illustrations/upload.svg";
 // Material-UI Components Imports
 import light from "../../themes/light";
 import { ThemeProvider } from "@material-ui/styles";
@@ -49,9 +49,9 @@ const PostForm = ({ addPost }) => {
             <img src={postImg} className="post_img" alt="postimg"></img>
           </figure>
           <form onSubmit={e => onSubmit(e)} className="post__form">
-            <h4>Please write your post below</h4>
+            <h4>Spread the word</h4>
             <TextField
-              label="Post Title"
+              label="Title"
               name="title"
               value={title}
               placeholder="Title"
@@ -64,7 +64,7 @@ const PostForm = ({ addPost }) => {
               required
             />
             <TextField
-              label="Post Content"
+              label="Content"
               variant="outlined"
               name="text"
               value={text}
