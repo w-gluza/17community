@@ -1,23 +1,19 @@
 .post__article {
   display: grid;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem 0;
+  padding: 2rem 0rem 5rem 0rem;
   @include respond(tab-port) {
-    display: grid;
     align-items: center;
     justify-content: center;
-    padding: 2rem;
   }
 }
 .post__card {
   display: grid;
-  max-width: 50vw;
-  grid-template-columns: 2fr 3fr;
-  padding: 3rem 4rem;
+  max-width: 90vw;
+  grid-template-columns: 1fr;
+  padding: 1.5rem 2rem;
   background-color: #fefefe;
   @include respond(tab-port) {
-    display: grid;
+    padding: 3rem 4rem;
     max-width: 60vw;
     grid-template-columns: 2fr 3fr;
     gap: 4rem;
@@ -27,8 +23,13 @@
 .post__form {
   display: grid;
   grid-template-columns: 1fr;
-  padding: 0 2rem;
   gap: 1rem;
+  padding: 0rem;
+
+  @include respond(tab-port) {
+    padding: 0 2rem;
+    gap: 1rem;
+  }
 }
 .post__figure {
   display: grid;

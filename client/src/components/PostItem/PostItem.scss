@@ -1,16 +1,22 @@
 .post-item {
   margin-bottom: 4rem;
-  width: 50vw;
+  max-width: 90vw;
+  @include respond(tab-port) {
+    margin-bottom: 4rem;
+    max-width: 60vw;
+  }
 }
 .media {
   height: 280px;
   padding-top: "56.25%"; // 16:9
 }
 .postitem__heading {
-  display: grid;
-  grid-template-columns: max-content max-content;
-  justify-content: space-between;
-  align-items: center;
+  @include respond(tab-port) {
+    display: grid;
+    grid-template-columns: max-content max-content;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
 .post__link {
   color: var(--color-white);
