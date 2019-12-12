@@ -1,5 +1,5 @@
 import { createMuiTheme } from "@material-ui/core/styles";
-import "./sass/abstracts.scss";
+import "../sass/abstracts.scss";
 
 const theme = createMuiTheme({
   palette: {
@@ -15,7 +15,6 @@ const theme = createMuiTheme({
   overrides: {
     MuiInput: {
       root: {
-        // borderColor: "#002884",
         color: "var(--color-secondary)"
       }
     },

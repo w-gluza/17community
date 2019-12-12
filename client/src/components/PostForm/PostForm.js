@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { addPost } from "../../actions/post";
-import theme from "../../theme";
+import light from "../../themes/light";
 import { ThemeProvider } from "@material-ui/styles";
 import Button from "@material-ui/core/Button";
 import { TextField } from "@material-ui/core";
@@ -29,18 +29,16 @@ const PostForm = ({ addPost }) => {
         reader.onerror = error => reject(error);
       });
     async function Main() {
-      console.log(e.target.fileimg);
-      // const file = e.target.img.files[0];
-      // console.log(await toBase64(file));
-      // formData.img = await toBase64(file);
-      // await addPost(formData);
+      const file = e.target.img.files[0];
+      formData.img = await toBase64(file);
+      await addPost(formData);
     }
 
     Main();
   };
 
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={light}>
       <article className="post__article">
         <p>Please write your post below</p>
         <form onSubmit={e => onSubmit(e)} className="post__form">
