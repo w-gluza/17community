@@ -50,7 +50,7 @@ const PostItem = ({
                 <IconButton aria-label="like" onClick={() => addLike(_id)}>
                   <FavoriteIcon />
                 </IconButton>
-                <span>
+                <span className="post__likes-counter">
                   {likes.length > 0 && <span>| {likes.length} |</span>}
                 </span>
               </span>
@@ -63,7 +63,7 @@ const PostItem = ({
               color="primary"
               startIcon={<CommentOutlinedIcon />}
             >
-              <Link to={`/posts/${_id}`}>
+              <Link to={`/posts/${_id}`} className="post__link">
                 See more{" "}
                 {comments.length > 0 && <span>|{comments.length}|</span>}
               </Link>

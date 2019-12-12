@@ -8,8 +8,6 @@ import { getCurrentProfile, deleteAccount } from "../../actions/profile";
 import newUserImage from "../../assets/illustrations/new_profile.svg";
 // Material-UI Components Imports
 import Button from "@material-ui/core/Button";
-import light from "../../themes/light";
-import { ThemeProvider } from "@material-ui/styles";
 
 const Dashboard = ({
   getCurrentProfile,
@@ -24,52 +22,51 @@ const Dashboard = ({
   return loading && profile === null ? (
     <Loader />
   ) : (
-    <ThemeProvider theme={light}>
-      <section className="section dashboard">
-        <h4>
-          Hello{" "}
-          <span style={{ color: "var(--color-primary)" }}>
-            {user && user.name}
-          </span>
-          !
-        </h4>
-        {profile !== null ? (
-          <>
-            <img src={newUserImage} alt="new user" />
-            <div className="btn-group">
-              <Button size="large" variant="outlined" color="primary">
-                <DashboardActions />
-              </Button>
-              <Button
-                size="large"
-                variant="outlined"
-                onClick={() => deleteAccount()}
-              >
-                Delete Account
-              </Button>
-            </div>
-          </>
-        ) : (
-          <>
-            <img src={newUserImage} alt="new user" />
-            <p>You have not yet setup the profile.</p>
-            <div className="btn-group">
-              <Button size="large" variant="outlined" color="primary">
-                <Link to="./create-profile">Create Profile</Link>
-              </Button>
-              <Button
-                size="large"
-                variant="outlined"
-                color="primary"
-                onClick={() => deleteAccount()}
-              >
-                Delete Account
-              </Button>
-            </div>
-          </>
-        )}
-      </section>
-    </ThemeProvider>
+    <section className="section dashboard">
+      <h4>
+        Hello{" "}
+        <span style={{ color: "var(--color-primary)" }}>
+          {user && user.name}
+        </span>
+        !
+      </h4>
+      {profile !== null ? (
+        <>
+          <img src={newUserImage} alt="new user" />
+          <div className="btn-group">
+            <Button size="large" variant="outlined" color="primary">
+              <DashboardActions />
+            </Button>
+            <Button
+              size="large"
+              color="primary"
+              variant="outlined"
+              onClick={() => deleteAccount()}
+            >
+              Delete Account
+            </Button>
+          </div>
+        </>
+      ) : (
+        <>
+          <img src={newUserImage} alt="new user" />
+          <p>You have not yet setup the profile.</p>
+          <div className="btn-group">
+            <Button size="large" variant="outlined" color="primary">
+              <Link to="./create-profile">Create Profile</Link>
+            </Button>
+            <Button
+              size="large"
+              color="primary"
+              variant="outlined"
+              onClick={() => deleteAccount()}
+            >
+              Delete Account
+            </Button>
+          </div>
+        </>
+      )}
+    </section>
   );
 };
 

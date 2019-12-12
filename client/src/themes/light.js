@@ -2,6 +2,11 @@ import { createMuiTheme } from "@material-ui/core/styles";
 import "../sass/abstracts.scss";
 
 const theme = createMuiTheme({
+  typography: {
+    body2: {
+      fontSize: "16px"
+    }
+  },
   palette: {
     primary: {
       main: "#60a3d9"
@@ -51,6 +56,13 @@ const theme = createMuiTheme({
     MuiButton: {
       label: {
         color: "var(--color-white)"
+      }
+    },
+    MuiAvatar: {
+      root: {
+        width: "75px",
+        height: "75px",
+        margin: "0px"
       }
     }
   }
