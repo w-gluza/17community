@@ -18,7 +18,7 @@ const ProfileHeader = ({
     <>
       <Card className='section__profile'>
         <img className='profile__img' src={avatar} alt='avatar' />
-        <article>
+        <article className='details'>
           <h2>{name}</h2>
 
           <div className='status__container'>
@@ -69,13 +69,13 @@ const ProfileHeader = ({
             )}
 
             {interests && (
-              <ul className='tags'>
+              <div className='tags'>
                 {interests.map((interest, index) => (
-                  <li className='tag' key={index}>
+                  <p className='tag' key={index}>
                     {interest}
-                  </li>
+                  </p>
                 ))}
-              </ul>
+              </div>
             )}
           </section>
         </article>
