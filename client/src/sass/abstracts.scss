@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,600');
+@import url("https://fonts.googleapis.com/css?family=Poppins:300,400,600");
 
 html {
   /* This define what 1rem is */
@@ -12,8 +12,11 @@ html {
 :root {
   --color-primary: #60a3d9;
   --color-secondary: #32324a;
-  --color-background: #fefefe;
-  --color-grey: #f2f2f2;
+  --color-background: #f2f2f2;
+  --color-background-light: #fefefe;
+
+  // --color-grey: #f2f2f2;
+
   --color-light: #e1e1eb;
   --color-white: #fff;
   --color-black: #111;

@@ -9,6 +9,7 @@
 
 .auth__aside {
   display: none;
+  background-color: var(--color-background-light);
   @include respond(tab-port) {
     display: flex;
     justify-content: center;
@@ -66,4 +67,8 @@
 
 .figcaption {
   padding: 1rem 0;
+}
+
+.img__auth {
+  height: 50vh;
 }

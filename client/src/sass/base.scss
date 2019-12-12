@@ -88,6 +88,7 @@ p {
 .page-container {
   display: flex;
   flex-direction: column;
+  background-color: var(--color-background-light);
   @include respond(tab-port) {
     display: grid;
     grid-template-columns: 1fr 4fr;
@@ -101,6 +102,7 @@ p {
 }
 
 .main {
+  background-color: #f2f2f2;
   @include respond(tab-port) {
     grid-column: 2/3;
   }
