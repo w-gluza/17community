@@ -60,64 +60,72 @@ const CreateProfile = ({
             <form onSubmit={e => onSubmit(e)} className="create__profile-form">
               <h4>Tell us more about you!</h4>
               <TextField
+                label="Website"
                 type="text"
-                placeholder="website"
+                placeholder="Personal website"
                 name="website"
                 value={website}
                 variant="outlined"
                 onChange={e => onChange(e)}
               />
               <TextField
+                label="Location"
                 type="text"
-                placeholder="location"
+                placeholder="Your hometown"
                 name="location"
                 value={location}
                 variant="outlined"
                 onChange={e => onChange(e)}
               />
               <TextField
+                label="Profession"
                 type="text"
-                placeholder="your profesion"
+                placeholder="Share what do you do in life"
                 name="status"
                 value={status}
                 variant="outlined"
                 onChange={e => onChange(e)}
               />
               <TextField
+                label="Intrests"
                 type="text"
-                placeholder="interests"
+                placeholder="Share your hobbies"
                 name="interests"
                 value={interests}
                 variant="outlined"
                 onChange={e => onChange(e)}
               />
               <TextField
+                label="Biography"
                 type="text"
-                placeholder="bio"
+                placeholder="Let us know you better!"
                 name="bio"
                 value={bio}
                 variant="outlined"
                 onChange={e => onChange(e)}
               />
               <TextField
+                label="Instagram"
                 type="text"
-                placeholder="instagram"
+                placeholder="Instagram account"
                 name="instagram"
                 value={instagram}
                 variant="outlined"
                 onChange={e => onChange(e)}
               />
               <TextField
+                label="Facebook"
                 type="text"
-                placeholder="facebook"
+                placeholder="Facebook account"
                 name="facebook"
                 value={facebook}
                 variant="outlined"
                 onChange={e => onChange(e)}
               />
               <TextField
+                label="LinkedIn"
                 type="text"
-                placeholder="linkedin"
+                placeholder="LinkedIn account"
                 name="linkedin"
                 value={linkedin}
                 variant="outlined"

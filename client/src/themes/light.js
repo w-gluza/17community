@@ -26,10 +26,16 @@ const theme = createMuiTheme({
         color: "var(--color-black)"
       }
     },
+    MuiInputLabel: {
+      outlined: {
+        transform: "translate(14px, 15px) scale(1)"
+      }
+    },
     MuiOutlinedInput: {
       input: {
         padding: "12.5px 14px"
       },
+
       notchedOutline: {
         borderColor: "rgba(50,50,74, 0.5)"
       },

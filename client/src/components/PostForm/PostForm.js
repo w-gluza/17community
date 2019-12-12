@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { addPost } from "../../actions/post";
+import postImg from "../../assets/illustrations/00_community.svg";
+// Material-UI Components Imports
 import light from "../../themes/light";
 import { ThemeProvider } from "@material-ui/styles";
+import Card from "@material-ui/core/Card";
 import Button from "@material-ui/core/Button";
 import { TextField } from "@material-ui/core";
-
 import CloudUploadIcon from "@material-ui/icons/CloudUpload";
 
 const PostForm = ({ addPost }) => {
@@ -42,59 +44,62 @@ const PostForm = ({ addPost }) => {
   return (
     <ThemeProvider theme={light}>
       <article className="post__article">
-        <p>Please write your post below</p>
-        <form onSubmit={e => onSubmit(e)} className="post__form">
-          <TextField
-            label="Post Title"
-            className="form__field"
-            name="title"
-            value={title}
-            placeholder="Title"
-            onChange={e => onChange(e)}
-            margin="normal"
-            variant="outlined"
-            required
-          />
-          <TextField
-            label="Post content"
-            variant="outlined"
-            name="text"
-            value={text}
-            className="form__field"
-            placeholder="Add something cool"
-            onChange={e => onChange(e)}
-            required
-          />
-          <input
-            name="img"
-            accept="image/*"
-            style={{ display: "none" }}
-            id="postImg"
-            multiple
-            type="file"
-            value={img}
-            onChange={e => onChange(e)}
-          />
-          <label htmlFor="postImg">
+        <Card className="post__card">
+          <figure className="post__figure">
+            <img src={postImg} className="post_img" alt="postimg"></img>
+          </figure>
+          <form onSubmit={e => onSubmit(e)} className="post__form">
+            <h4>Please write your post below</h4>
+            <TextField
+              label="Post Title"
+              name="title"
+              value={title}
+              placeholder="Title"
+              onChange={e => onChange(e)}
+              margin="normal"
+              variant="outlined"
+              required
+            />
+            <TextField
+              label="Post Content"
+              variant="outlined"
+              name="text"
+              value={text}
+              placeholder="Add something cool"
+              onChange={e => onChange(e)}
+              required
+            />
+            <input
+              name="img"
+              accept="image/*"
+              style={{ display: "none" }}
+              id="postImg"
+              multiple
+              type="file"
+              value={img}
+              onChange={e => onChange(e)}
+            />
+            <label htmlFor="postImg">
+              <Button
+                component="span"
+                variant="contained"
+                color="default"
+                startIcon={<CloudUploadIcon />}
+              >
+                Upload
+              </Button>
+            </label>
             <Button
-              component="span"
+              type="submit"
+              className="button"
               variant="contained"
-              color="default"
-              startIcon={<CloudUploadIcon />}
+              color="primary"
+              size="large"
             >
-              Upload
+              Submit
             </Button>
-          </label>
-          <Button
-            type="submit"
-            className="button"
-            variant="contained"
-            color="primary"
-            size="large"
-          >
-            Submit
-          </Button>
-        </form>
+          </form>
+        </Card>
       </article>
     </ThemeProvider>
   );
