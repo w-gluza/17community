@@ -2,22 +2,26 @@
   display: flex;
   width: 100%;
   background-color: var(--color-white);
-  border-radius: 2rem;
   margin: 2rem 0;
   @include respond(tab-port) {
-    display: flex;
-    align-items: flex-start;
-    justify-content: stretch;
+    display: grid;
+    grid-template-columns: 1fr 3fr 2fr;
+    align-items: start;
   }
 }
-
 .avatar {
   max-width: 100px;
   margin: 2rem;
   border-radius: 50%;
 }
 
-.see-more {
-  align-self: flex-end;
-  justify-self: flex-end;
+.status__container {
+  display: grid;
+  grid-template-columns: max-content max-content;
+}
+
+.tags {
+  display: flex;
+  justify-content: flex-end;
+  padding: 2rem;
 }

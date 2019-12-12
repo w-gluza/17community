@@ -1,6 +1,7 @@
-import React from "react";
-import PropTypes from "prop-types";
-import Icon from "../../assets/icons/index";
+import React from 'react';
+import PropTypes from 'prop-types';
+import Icon from '../../assets/icons/index';
+import Card from '@material-ui/core/Card';
 
 const ProfileHeader = ({
   profile: {
@@ -10,56 +11,53 @@ const ProfileHeader = ({
     location,
     website,
     bio,
-    interests
-  }
+    interests,
+  },
 }) => {
   return (
     <>
-      <section className="section__profile">
-        <img className="profile__img" src={avatar} alt="avatar" />
+      <Card className='section__profile'>
+        <img className='profile__img' src={avatar} alt='avatar' />
         <article>
           <h2>{name}</h2>
 
-          <div className="status__container">
+          <div className='status__container'>
             <p>{status}&nbsp;</p>
             {location && <p> | {location}</p>}
           </div>
 
-          <div className="icons__container">
+          <div className='icons__container'>
             {facebook && (
               <a
                 href={facebook}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="icon"
-              >
-                <Icon name="Facebook" alt="Facebook account" />
+                target='_blank'
+                rel='noopener noreferrer'
+                className='icon'>
+                <Icon name='Facebook' alt='Facebook account' />
               </a>
             )}
             {instagram && (
               <a
                 href={instagram}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="icon"
-              >
-                <Icon name="Instagram" alt="" />
+                target='_blank'
+                rel='noopener noreferrer'
+                className='icon'>
+                <Icon name='Instagram' alt='' />
               </a>
             )}
             {linkedin && (
               <a
                 href={linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="icon"
-              >
-                <Icon name="LinkedIn" alt="" />
+                target='_blank'
+                rel='noopener noreferrer'
+                className='icon'>
+                <Icon name='LinkedIn' alt='' />
               </a>
             )}
           </div>
 
           {website && (
-            <a href={website} target="_blank" rel="noopener noreferrer">
+            <a href={website} target='_blank' rel='noopener noreferrer'>
               {website}
             </a>
           )}
@@ -71,9 +69,9 @@ const ProfileHeader = ({
             )}
 
             {interests && (
-              <ul className="tags">
+              <ul className='tags'>
                 {interests.map((interest, index) => (
-                  <li className="tag" key={index}>
+                  <li className='tag' key={index}>
                     {interest}
                   </li>
                 ))}
@@ -81,13 +79,13 @@ const ProfileHeader = ({
             )}
           </section>
         </article>
-      </section>
+      </Card>
     </>
   );
 };
 
 ProfileHeader.propTypes = {
-  profile: PropTypes.object.isRequired
+  profile: PropTypes.object.isRequired,
 };
 
 export default ProfileHeader;

@@ -19,7 +19,7 @@ const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
         <>
           <h2>Members</h2>
 
-          <article>
+          <article className='profiles-container'>
             {profiles.length > 0 ? (
               profiles.map(profile => (
                 <ProfilePreview key={profile._id} profile={profile} />

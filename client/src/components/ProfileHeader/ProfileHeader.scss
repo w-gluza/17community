@@ -18,6 +18,8 @@
 .section__profile {
   display: grid;
   grid-template-columns: 1fr 4fr;
+  background-color: var(--color-background);
+  padding: 3rem;
 }
 .status__container {
   display: grid;
