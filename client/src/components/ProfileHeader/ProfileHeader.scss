@@ -6,7 +6,7 @@
   display: grid;
   grid-template-columns: repeat(3, max-content);
   gap: 1.2rem;
-  padding: 1rem 0;
+  padding: 1rem 0 2rem 0;
 }
 .icon {
   height: 2.5rem;
@@ -26,7 +26,7 @@
 .status__container {
   display: grid;
   grid-template-columns: max-content max-content;
-  padding: 1rem 0;
+  padding: 1rem 0 0 0;
 }
 
 .details {
@@ -41,6 +41,15 @@
   }
 }
 
+.name {
+  padding: 2rem 0 0 0;
+}
+
 .bio {
   padding: 1rem 0;
+}
+
+.website-link {
+  color: rgba(50, 50, 74, 0.3);
+  padding-bottom: 1rem;
 }
