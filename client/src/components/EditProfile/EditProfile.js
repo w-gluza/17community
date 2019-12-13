@@ -3,6 +3,7 @@ import { withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { createProfile, getCurrentProfile } from "../../actions/profile";
+import avatar from "../../assets/illustrations/avatar_female.svg";
 
 // Material-UI Components Imports
 import light from "../../themes/light";
@@ -68,7 +69,7 @@ const EditProfile = ({
       <section className="edit__profile-section">
         <Card className="edit__profile-card">
           <figure>
-            <div className="edit__profile-avatar"></div>
+            <img className="edit__profile-avatar" src={avatar} alt="avt"></img>
           </figure>
           <form className="edit__profile-form" onSubmit={e => onSubmit(e)}>
             <h4>Edit Profile</h4>

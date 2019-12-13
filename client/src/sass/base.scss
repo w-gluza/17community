@@ -70,15 +70,28 @@ h4 {
 }
 
 h5 {
-  font-size: var(--font-size-large);
+  font-size: var(--font-size-regular);
   font-weight: var(--font-weight-regular);
   line-height: var(--line-height-regular);
   letter-spacing: var(--letter-spacing-small);
   color: var(--color-primary);
+
+  @include respond(tab-port) {
+    font-size: var(--font-size-large);
+  }
 }
 
-button,
 p {
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-light);
+  line-height: var(--line-height-regular);
+  letter-spacing: var(--letter-spacing-small);
+  color: var(--color-black);
+  @include respond(tab-port) {
+    font-size: 12px;
+  }
+}
+button {
   font-size: var(--font-size-regular);
   font-weight: var(--font-weight-light);
   line-height: var(--line-height-regular);

@@ -65,7 +65,7 @@ const PostItem = ({
             >
               <Link to={`/posts/${_id}`} className="post__link">
                 See more{" "}
-                {comments.length > 0 && <span>|{comments.length}|</span>}
+                {comments.length > 0 && <span>| {comments.length} |</span>}
               </Link>
             </Button>
 

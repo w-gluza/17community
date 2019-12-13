@@ -16,6 +16,9 @@ const theme = createMuiTheme({
     },
     error: {
       main: "#eb6475"
+    },
+    accent: {
+      main: "#eb6475"
     }
   },
   overrides: {

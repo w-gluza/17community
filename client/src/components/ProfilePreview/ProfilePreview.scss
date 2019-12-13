@@ -32,6 +32,10 @@
 
 .tags {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
+  flex-wrap: wrap;
   padding: 2rem;
+  @include respond(tab-port) {
+    justify-content: flex-end;
+  }
 }

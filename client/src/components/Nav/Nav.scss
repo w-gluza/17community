@@ -20,6 +20,10 @@
   color: var(--color-white);
 }
 
+.nav a:hover {
+  color: var(--color-primary);
+}
+
 .nav span {
   cursor: pointer;
 }

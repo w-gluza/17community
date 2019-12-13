@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { createProfile, getCurrentProfile } from "../../actions/profile";
 import { TextField } from "@material-ui/core";
+import avatar from "../../assets/illustrations/avatar_female.svg";
 
 // Material-UI Components Imports
 import light from "../../themes/light";
@@ -55,7 +56,11 @@ const CreateProfile = ({
         <article>
           <Card className="create__profile-card">
             <figure>
-              <div className="create__profile-avatar"></div>
+              <img
+                className="edit__profile-avatar"
+                src={avatar}
+                alt="avt"
+              ></img>
             </figure>
             <form onSubmit={e => onSubmit(e)} className="create__profile-form">
               <h4>Tell us more about you!</h4>

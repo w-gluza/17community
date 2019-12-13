@@ -27,6 +27,7 @@
   align-items: center;
   flex-wrap: nowrap;
   overflow-x: auto;
+  cursor: pointer;
   @include respond(tab-port) {
     height: 100%;
     grid-row: 2/3;

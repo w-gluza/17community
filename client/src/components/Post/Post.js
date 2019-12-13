@@ -8,6 +8,7 @@ import PostItem from "../PostItem/PostItem";
 import Comment from "../Comment/Comment";
 import CommentForm from "../CommentForm/CommentForm";
 import { getPost } from "../../actions/post";
+import Button from "@material-ui/core/Button";
 
 const Post = ({ getPost, post: { post, loading }, match }) => {
   useEffect(() => {
@@ -17,16 +18,19 @@ const Post = ({ getPost, post: { post, loading }, match }) => {
   return loading || post === null ? (
     <Loader />
   ) : (
-    <div>
-      <Link to="/posts" className="btn">
-        Back To Posts
-      </Link>
+    <section className="section section__post">
       <PostItem post={post} />
       <CommentForm postId={post._id} />
+      <h3 className="heading__comments">Comments:</h3>
       {post.comments.map(comment => (
         <Comment key={comment._id} comment={comment} postId={post._id} />
       ))}
-    </div>
+      <Button variant="contained">
+        <Link to="/posts" className="btn">
+          Back To Posts
+        </Link>
+      </Button>
+    </section>
   );
 };
 Post.propTypes = {

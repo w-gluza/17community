@@ -3,27 +3,44 @@
   min-height: 100vh;
   justify-content: center;
   align-content: center;
-  padding: 4rem;
+  margin-top: 2rem;
+  @include respond(tab-port) {
+    padding: 4rem;
+    justify-content: center;
+  }
 }
 
 .edit__profile-card {
-  min-width: 60vw;
+  min-width: 90vw;
   display: grid;
-  grid-template-columns: 2fr 3fr;
+  grid-template-columns: 1fr;
   padding: 3rem 4rem;
   background-color: #fefefe;
+  @include respond(tab-port) {
+    grid-template-columns: 2fr 3fr;
+    min-width: 60vw;
+  }
 }
 
 .edit__profile-form {
   display: grid;
   grid-template-columns: 1fr;
-  padding: 0 2rem;
-  gap: 1rem;
+  padding: 0rem;
+  gap: 2rem;
+  @include respond(tab-port) {
+    padding: 0 2rem;
+  }
 }
 
 .edit__profile-avatar {
   width: 100px;
   height: 100px;
-  background-color: var(--color-primary);
-  border-radius: 50%;
+  // background-color: var(--color-primary);
+  // border-radius: 50%;
+  margin-bottom: 2rem;
+  @include respond(tab-port) {
+    width: 150px;
+    height: 150px;
+    grid-template-columns: 2fr 3fr;
+  }
 }

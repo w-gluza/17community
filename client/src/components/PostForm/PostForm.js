@@ -18,7 +18,6 @@ const PostForm = ({ addPost }) => {
     img: ""
   });
   const { title, text, img } = formData;
-  console.log(formData);
 
   const onChange = e =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -90,7 +89,7 @@ const PostForm = ({ addPost }) => {
               <Button
                 component="span"
                 variant="contained"
-                color="default"
+                className="colour"
                 startIcon={<CloudUploadIcon />}
               >
                 Upload
