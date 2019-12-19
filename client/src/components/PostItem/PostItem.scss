@@ -1,14 +1,15 @@
 .post-item {
   margin-bottom: 4rem;
   max-width: 90vw;
+
   @include respond(tab-port) {
     margin-bottom: 4rem;
-    max-width: 60vw;
+    width: 60vw;
   }
 }
 .media {
   height: 280px;
-  padding-top: "56.25%"; // 16:9
+  padding-top: '56.25%'; // 16:9
 }
 .postitem__heading {
   @include respond(tab-port) {
@@ -23,4 +24,8 @@
 }
 .post__likes-counter {
   color: var(--color-accent);
+}
+
+.post-paragraph {
+  font-size: 1.2rem;
 }

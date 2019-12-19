@@ -1,5 +1,10 @@
 .section__post {
   justify-self: flex-end;
+  @include respond(tab-port) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 .heading__comments {
   justify-self: flex-start;

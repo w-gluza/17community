@@ -11,7 +11,7 @@
   border: none;
   text-decoration: none;
   background-color: transparent;
-  font-family: "Poppins", Helvetica, Arial, Verdana, Tahoma;
+  font-family: 'Poppins', Helvetica, Arial, Verdana, Tahoma;
 }
 
 button,
@@ -87,9 +87,6 @@ p {
   line-height: var(--line-height-regular);
   letter-spacing: var(--letter-spacing-small);
   color: var(--color-black);
-  @include respond(tab-port) {
-    font-size: 12px;
-  }
 }
 button {
   font-size: var(--font-size-regular);
